@@ -1,4 +1,4 @@
-package com.naver.dao;
+package com.naver.blog.dao;
 
 import com.naver.blog.valueObject.Member;
 
