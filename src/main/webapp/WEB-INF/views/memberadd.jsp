@@ -25,14 +25,14 @@
             <h3 class="panel-title">회원가입</h3>
           </div>
           <div class="panel-body">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="/memberadd" method="POST">
               <fieldset>
 
                 <!-- 아이디 -->
                 <div class="form-group">
                   <label for="inputEmail" class="col-lg-2 control-label">ID</label>
                   <div class="col-lg-4">
-                    <input type="text" class="form-control" id="id" placeholder="ID">
+                    <input type="text" class="form-control" name="id" placeholder="ID">
                   </div>
                 </div>
 
@@ -42,7 +42,7 @@
                     <div class="form-group">
                       <label for="inputEmail" class="col-lg-2 control-label">Password</label>
                       <div class="col-lg-4">
-                        <input type="password" class="form-control" id="pw" placeholder="password">
+                        <input type="password" class="form-control" name="pw" placeholder="password">
                       </div>
                     </div>
 
@@ -50,7 +50,7 @@
                 <div class="form-group">
                   <label for="inputPassword" class="col-lg-2 control-label">PasswordCheck</label>
                   <div class="col-lg-4">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="PasswordCheck">
+                    <input type="password" class="form-control" name="inputPassword" placeholder="PasswordCheck">
                   </div>
                 </div>
                 
@@ -58,7 +58,7 @@
                 <div class="form-group">
                   <label for="inputEmail" class="col-lg-2 control-label">이름</label>
                   <div class="col-lg-6">
-                    <input type="text" class="form-control" id="name" placeholder="이름">
+                    <input type="text" class="form-control" name="name" placeholder="이름">
                   </div>
                 </div>
 
@@ -66,7 +66,7 @@
                 <div class="form-group">
                   <label for="inputEmail" class="col-lg-2 control-label">생년월일</label>
                   <div class="col-lg-6">
-                    <input type="text" class="form-control" id="birth" placeholder="생년월일">
+                    <input type="text" class="form-control" name="birth" placeholder="생년월일 ex 930410">
                   </div>
                 </div>
 
@@ -74,7 +74,15 @@
                 <div class="form-group">
                   <label for="inputEmail" class="col-lg-2 control-label">주소</label>
                   <div class="col-lg-8">
-                    <input type="text" class="form-control" id="addr" placeholder="주소">
+                    <input type="text" class="form-control" name="addr" placeholder="주소">
+                  </div>
+                </div>
+                
+                <!-- 도서관코드  -->
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-2 control-label">도서관코드</label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control" name="libCode" placeholder="도서관코드">
                   </div>
                 </div>
 

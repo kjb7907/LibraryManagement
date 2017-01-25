@@ -22,7 +22,7 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" class="form-control"name="email" placeholder="E-mail address">
+            <input type="text" class="form-control"name="email" placeholder="ID">
           </div>
         </div>
         <div class="field">
@@ -31,7 +31,7 @@
             <input type="password" class="form-control" name="password" placeholder="Password">
           </div>
         </div>
-        <div class="ui fluid large teal submit button">Login</div>
+        <div class="ui fluid big teal submit button">로그인</div>
       </div>
 
       <div class="ui error message"></div>
@@ -39,7 +39,7 @@
     </form>
 
     <button class="huge ui basic button">
-      New to us? <a href="#">Sign Up</a>
+      New to us? <a href="/memberadd">회원가입</a>
     </button>
   </div>
 </div>

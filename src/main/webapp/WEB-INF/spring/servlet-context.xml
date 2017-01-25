@@ -25,6 +25,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:com/naver/blog/service/LibMapper.xml</value>
+				<value>classpath:com/naver/blog/service/MemberMapper.xml</value>
 			</list>
 		</property>
 	</bean>

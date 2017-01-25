@@ -13,8 +13,8 @@
 </style>
 <footer class="container-fluidfooter bg-4 text-center">
 	<div align="center">
-		<p>전북 전주시 덕진구 금암동 한국스마트정보교육원 도서관 123-3
+		<p>전라북도 전주시 덕진구 금암동 명륜 2길 7-3  한국스마트정보교육원  
 		<p>Tel : 063-717-1008  Email: ksmart@library.com</p>
-		<p>계좌번호 : KS은행 123-123-123-123 </p>
+		<p>계좌번호 : 신한은행 110-370-350971 </p>
 	</div>
 </footer>

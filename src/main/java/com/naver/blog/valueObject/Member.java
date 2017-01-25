@@ -1,4 +1,4 @@
-package com.naver.blog.service;
+package com.naver.blog.valueObject;
 
 public class Member {
 	private String id;					//아이디
