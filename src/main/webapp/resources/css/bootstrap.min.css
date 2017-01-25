@@ -4356,10 +4356,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 @media (min-width: 768px) {
-  .navbar-nav {
-    float: left;
-    margin: 0;
-  }
+   .navbar-nav{
+        float:none;
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+    }
   .navbar-nav > li {
     float: left;
   }
@@ -7067,13 +7069,4 @@ input[type="checkbox"] {
 }
 .modal .close {
   color: #222222;
-}
-
-@media (min-width: 768px){
-    .navbar-nav{
-        float:none;
-        margin: 0 auto;
-        display: table;
-        table-layout: fixed;
-    }
 }

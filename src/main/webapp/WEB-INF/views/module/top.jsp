@@ -77,7 +77,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav navbar-center">
 
-                <!-- 드롭다운 1 -->
+                <!-- 드롭다운 1 도서관관리 -->
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">도서관 관리 <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
@@ -86,30 +86,32 @@
                   </ul>
                 </li>
 
-                <!-- 드롭다운 2 -->
+                <!-- 드롭다운 2 도서관리 -->
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">도서 관리 <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">도서등록</a></li>
+                    <li><a href="#">도서폐기</a></li>
                   </ul>
                 </li>
-
+                
+                <!-- 도서조회 -->
+                <li>
+                  <li><a href="#">도서조회</a></li>
+                </li>
+                
                 <!-- 대출 -->
                 <li>
-                  <li><a href="#">대출</a></li>
+                  <li><a href="#">도서대출</a></li>
                 </li>
                 <!-- 반납 -->
                 <li>
-                  <li><a href="#">반납</a></li>
+                  <li><a href="#">도서반납</a></li>
                 </li>
 
           </ul>
 
-            <!-- 오른쪽로고 -->
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
-            </ul>
+
           </div>
         </div>
       </div>

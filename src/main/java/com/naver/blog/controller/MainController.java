@@ -19,10 +19,15 @@ public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-
+	//메인페이지
 	@RequestMapping(value = "main", method = RequestMethod.GET)
 	public String main(){
 		return "main";
+	}
+	//회원가입화면
+	@RequestMapping(value = "memberadd", method = RequestMethod.GET)
+	public String memberadd(){
+		return "memberadd";
 	}
 	
 }
