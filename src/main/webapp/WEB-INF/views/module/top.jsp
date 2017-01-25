@@ -40,10 +40,10 @@
           <a class="ui item">
             <h6>사이트맵</h6>
           </a>
-          <a class="ui item">
+          <a href="/memberadd" class="ui item">
             <h6>회원가입</h6>
           </a>
-          <a class="ui item">
+          <a href="login" class="ui item">
             <h6>로그인</h6>
           </a>
         </div>
@@ -54,7 +54,7 @@
     <!-- 타이틀이미지 -->
     <div class="container">
       <center>
-        <img src= "/resources/public/logo_kyobo.png">
+        <a href="/main"><img src= "/resources/public/logo_kyobo.png"></a>
         <table style = "height:50px;"></table>
       </center>
     </div>

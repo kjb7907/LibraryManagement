@@ -29,5 +29,10 @@ public class MainController {
 	public String memberadd(){
 		return "memberadd";
 	}
+	//로그인화면
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login(){
+		return "login";
+	}
 	
 }
