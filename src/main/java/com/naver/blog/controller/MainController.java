@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.naver.blog.service.Member;
+
 /**
  * Handles requests for the application home page.
  */
@@ -24,15 +26,21 @@ public class MainController {
 	public String main(){
 		return "main";
 	}
-	//회원가입화면
-	@RequestMapping(value = "memberadd", method = RequestMethod.GET)
-	public String memberadd(){
-		return "memberadd";
-	}
 	//로그인화면
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login(){
 		return "login";
 	}
+	//회원가입화면
+	@RequestMapping(value = "memberadd", method = RequestMethod.GET)
+	public String memberadd(){
+		return "memberadd";
+	}
+	//회원가입 process
+	@RequestMapping(value = "memberadd", method = RequestMethod.POST)
+	public String memberadd(Member member){
+		return "memberadd";
+	}
+
 	
 }
