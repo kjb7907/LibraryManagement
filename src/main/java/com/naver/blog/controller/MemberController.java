@@ -19,9 +19,9 @@ import com.naver.blog.valueObject.Member;
  * Handles requests for the application home page.
  */
 @Controller
-public class MainController {
+public class MemberController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	
 	@Autowired
