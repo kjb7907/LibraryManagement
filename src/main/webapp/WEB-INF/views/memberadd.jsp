@@ -69,6 +69,14 @@
                     <input type="text" class="form-control" name="birth" placeholder="생년월일 ex 930410">
                   </div>
                 </div>
+                
+                 <!-- 휴대폰번호 -->
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-2 control-label">휴대폰번호</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="phone" placeholder="ex 01073667907">
+                  </div>
+                </div>
 
                 <!-- 주소  -->
                 <div class="form-group">

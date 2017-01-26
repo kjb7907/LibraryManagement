@@ -5,4 +5,30 @@
  
 <mapper namespace="com.naver.blog.MemberMapper">
 
+	<!--회원등록 insert member-->
+ 	<insert id="insertMember" parameterType="com.naver.blog.valueObject.Member">
+	 	INSERT INTO 
+		member(
+			memberid,
+			memberpw,
+			membername,
+			memberbirthday,
+			memberphone,
+			memberaddr,
+			joinday,
+			libcode,
+			MEMBERPAYMENTSTATUS
+		) 
+		VALUES(
+			#{id},
+			#{pw},
+			#{name},
+			#{birth},
+			#{phone},
+			#{addr},
+			now(),
+			#{libCode},
+			'미입금'
+		)
+ 	</insert>
 </mapper>

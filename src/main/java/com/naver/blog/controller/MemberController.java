@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.naver.blog.dao.MemberDaoImpl;
+import com.naver.blog.service.MemberService;
 import com.naver.blog.service.MemberServiceImpl;
 import com.naver.blog.valueObject.Member;
 
@@ -39,6 +41,12 @@ public class MemberController {
 		logger.debug("login form");
 		return "login";
 	}
+	//도서등록화면
+	@RequestMapping(value = "bookadd", method = RequestMethod.GET)
+	public String bookadd(){
+		logger.debug("bookadd form");
+		return "bookadd";
+	}
 	//회원가입화면
 	@RequestMapping(value = "memberadd", method = RequestMethod.GET)
 	public String memberadd(){
@@ -50,6 +58,7 @@ public class MemberController {
 	public String memberadd(Member member){
 		logger.debug("memberadd process");
 		logger.debug(member.toString());
+		memberService.memberAdd(member);
 		return "main";
 	}
 
