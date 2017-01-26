@@ -1,5 +1,7 @@
 package com.naver.blog.dao;
 
-public interface LibDao {
+import com.naver.blog.valueObject.Book;
 
+public interface LibDao {
+	int insertbook(Book book);
 }

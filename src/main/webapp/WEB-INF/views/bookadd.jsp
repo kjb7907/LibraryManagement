@@ -29,20 +29,20 @@
 		</ol>
 		<div class="ui raised segment">
 			
-				<form class="ui form">
+				<form class="ui form" method="post" action="/bookadd">
 					<h3 class="ui dividing header">Book Add</h3>
 					
 					<div class="fields">
 						<!-- 도서관코드 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >도서관코드</label>
-						  <input type="text" name="id" placeholder="ID">
+						  <input type="text" name="libCode" placeholder="ex 100">
 						</div>
 						
 						<!-- 도서명 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >도서명</label>
-						  <input type="text" name="id" placeholder="ID">
+						  <input type="text" name="bookName" placeholder="도서명">
 						</div>
 					</div>	
 					
@@ -50,13 +50,13 @@
 						<!-- 작가 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >작가</label>
-						  <input type="text" name="id" placeholder="ID">
+						  <input type="text" name="writer" placeholder="작가">
 						</div>
 						
 						<!-- 출판사 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >출판사</label>
-						  <input type="text" name="id" placeholder="ID">
+						  <input type="text" name="publisher" placeholder="출판사">
 						</div>
 					</div>
 					
@@ -64,21 +64,23 @@
 						<!-- 도서분류 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >도서분류</label>
-						  <input type="text" name="id" placeholder="ID">
+						  <input type="text" name="category" placeholder="도서분류">
 						</div>				
 	
 						<!-- 장르 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >장르</label>
-						  <input type="text" name="id" placeholder="ID">
-						</div>	
-						
+						  <input type="text" name="genre" placeholder="장르">
+						</div>								
+					</div>
+					
+					<div class="fields">
 						<!-- 책 위치 -->
 						<div class="field col-sm-4">
-						  <label style= font-size:12px;" >위치</label>
-						  <input type="text" name="id" placeholder="ID">
-						</div>									
-					</div>
+						  <label style= font-size:12px;" >도서위치</label>
+						  <input type="text" name="bookLocation" placeholder="도서위치">
+						</div>	
+					</div>	
 					
 					<!-- 버튼 -->
 	                <div class="form-group">

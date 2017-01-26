@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.naver.blog.service.MemberServiceImpl;
 import com.naver.blog.valueObject.Member;
 
 @Repository

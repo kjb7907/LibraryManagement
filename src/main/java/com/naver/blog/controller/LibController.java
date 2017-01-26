@@ -21,7 +21,7 @@ public class LibController {
 	
 	
 	@Autowired
-	LibServiceImpl libService;
+	LibService libService;
 
 	//도서등록화면
 	@RequestMapping(value = "bookadd", method = RequestMethod.GET)
@@ -34,7 +34,8 @@ public class LibController {
 	public String bookadd(Book book){
 		logger.debug("bookadd process");
 		logger.debug(book.toString());
-		return "bookadd";
+		libService.bookAdd(book);
+		return "main";
 	}
 
 	

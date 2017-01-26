@@ -1,5 +1,7 @@
 package com.naver.blog.service;
 
-public interface LibService {
+import com.naver.blog.valueObject.Book;
 
+public interface LibService {
+	int bookAdd(Book book);
 }
