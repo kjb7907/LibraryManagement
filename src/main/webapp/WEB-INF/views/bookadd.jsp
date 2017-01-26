@@ -9,10 +9,95 @@
 <body>
 <%@include file="./module/top.jsp" %>
 
+<div class="container">
+	
+	<!-- 사이드메뉴 -->
+     <div class="col-sm-2" class="list-group">
+       <a href="#" class="list-group-item active">
+         메뉴
+       </a>
+       <a href="#" class="list-group-item">도서등록
+       <a href="#" class="list-group-item">도서폐기
+       </a>
+     </div>
 
+	<div class="col-sm-8">
+		<ol class="ui breadcrumb" style="font-size:12px;">
+		  <li><a href="#">Home</a></li>
+		  <li><a href="#">도서관리</a></li>
+		  <li class="active">도서등록</li>
+		</ol>
+		<div class="ui raised segment">
+			
+				<form class="ui form">
+					<h3 class="ui dividing header">Book Add</h3>
+					
+					<div class="fields">
+						<!-- 도서관코드 -->
+						<div class="field col-sm-4">
+						  <label style= font-size:12px;" >도서관코드</label>
+						  <input type="text" name="id" placeholder="ID">
+						</div>
+						
+						<!-- 도서명 -->
+						<div class="field col-sm-4">
+						  <label style= font-size:12px;" >도서명</label>
+						  <input type="text" name="id" placeholder="ID">
+						</div>
+					</div>	
+					
+					<div class="fields">
+						<!-- 작가 -->
+						<div class="field col-sm-4">
+						  <label style= font-size:12px;" >작가</label>
+						  <input type="text" name="id" placeholder="ID">
+						</div>
+						
+						<!-- 출판사 -->
+						<div class="field col-sm-4">
+						  <label style= font-size:12px;" >출판사</label>
+						  <input type="text" name="id" placeholder="ID">
+						</div>
+					</div>
+					
+					<div class="fields">
+						<!-- 도서분류 -->
+						<div class="field col-sm-4">
+						  <label style= font-size:12px;" >도서분류</label>
+						  <input type="text" name="id" placeholder="ID">
+						</div>				
+	
+						<!-- 장르 -->
+						<div class="field col-sm-4">
+						  <label style= font-size:12px;" >장르</label>
+						  <input type="text" name="id" placeholder="ID">
+						</div>	
+						
+						<!-- 책 위치 -->
+						<div class="field col-sm-4">
+						  <label style= font-size:12px;" >위치</label>
+						  <input type="text" name="id" placeholder="ID">
+						</div>									
+					</div>
+					
+					<!-- 버튼 -->
+	                <div class="form-group">
+	                  <div class="col-lg-10">
+	                    <button type="reset" class="big ui grey button">reset</button>
+	                    <button type="submit" class="big ui teal button">도서등록</button>
+	                  </div>
+	                </div>
+	                
+	                <div class="field"></div>	
+                	 
+				</form>
 
-
-
+		</div>
+	</div>
+	
+</div>
+	</br>
+	
 <%@include file="./module/footer.jsp" %>
 </body>
 </html>
