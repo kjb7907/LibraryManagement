@@ -41,12 +41,6 @@ public class MemberController {
 		logger.debug("login form");
 		return "login";
 	}
-	//도서등록화면
-	@RequestMapping(value = "bookadd", method = RequestMethod.GET)
-	public String bookadd(){
-		logger.debug("bookadd form");
-		return "bookadd";
-	}
 	//회원가입화면
 	@RequestMapping(value = "memberadd", method = RequestMethod.GET)
 	public String memberadd(){
