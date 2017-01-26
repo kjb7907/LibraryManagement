@@ -102,7 +102,7 @@
                 
                 <!-- 대출 -->
                 <li>
-                  <li><a href="#">도서대출</a></li>
+                  <li><a href="/bookrental">도서대출</a></li>
                 </li>
                 <!-- 반납 -->
                 <li>

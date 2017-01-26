@@ -30,7 +30,7 @@
 		<div class="ui raised segment">
 			
 				<form class="ui form" method="post" action="/bookadd">
-					<h3 class="ui dividing header">Book Add</h3>
+					<h2 class="ui dividing header">Book Add</h2>
 					
 					<div class="fields">
 						<!-- 도서관코드 -->

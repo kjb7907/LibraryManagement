@@ -22,6 +22,13 @@ public class LibController {
 	
 	@Autowired
 	LibService libService;
+	
+	//도서대여화면
+	@RequestMapping(value = "bookrental", method = RequestMethod.GET)
+	public String bookRental(){
+		logger.debug("bookrental form");
+		return "bookrental";
+	}
 
 	//도서등록화면
 	@RequestMapping(value = "bookadd", method = RequestMethod.GET)

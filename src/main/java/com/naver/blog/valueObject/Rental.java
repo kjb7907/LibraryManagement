@@ -5,13 +5,14 @@ public class Rental {
 	private String memberId;			//대여자 id
 	private String rentalStartDay;	//대여 시작일
 	private String returnExpectDay;	//반납 예정일
+	private int rentalPrice;			//대여금액
 	private String returnDay;			//반납일
 	private String returnStatus; 		//반납상태
 	
 	@Override
 	public String toString() {
-		return "Rental [bookCode=" + bookCode + ", memberId=" + memberId + ", rentalStartDay=" + rentalStartDay
-				+ ", returnExpectDay=" + returnExpectDay + "]";
+		return "Rental [bookCode=" + bookCode + ", memberId=" + memberId +
+				", returnExpectDay=" + returnExpectDay + "]";
 	}
 
 	public int getBookCode() {
