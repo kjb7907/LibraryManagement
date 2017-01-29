@@ -6,32 +6,49 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+	//date객체 YYYY-MM-DD 변환함수
+	function dateToYYYYMMDD(date){
+	    function pad(num) {
+	        num = num + '';
+	        return num.length < 2 ? '0' + num : num;
+	    }
+	    return date.getFullYear() + '-' + pad(date.getMonth()+1) + '-' + pad(date.getDate());
+	}
+</script>
+
 <script>
 	$(document).ready(function(){
+
+		var nowDate = new Date(); //현재날짜 객체 생성
+		nowDate.setDate(nowDate.getDate()+5); // 현재날짜일수에 +5일 한 날짜 set
+		
+		//반납예정일 변수
+		var returnExpectDay = dateToYYYYMMDD(nowDate); //YYYY-MM-DD 형식으로변환
+		console.log(returnExpectDay);
+		
+		//반납예정일 기본값 세팅 
+		$("#returnExpectDay").val(returnExpectDay);
+		
 		$("#btn").click(function(){
 			console.log("버튼클릭");
 			if($("#rentalPrice").val() == ""){
-				console.log("가격비어있다");
-				var now_Date = new Date();
-				// var nowDate = now_Date.getFullYear()+'-'+now_Date.getMonth()+1+'-'+now_Date.getDate();
-				console.log('now_date getTime : '+now_Date.getTime());
 				
-				var returnExpectDay = new Date($("#returnExpectDay").val());
-				console.log('returnExpectDay getTime : '+returnExpectDay.getTime());
-
-			    var btMs = returnExpectDay.getTime() - now_Date.getTime() ;
-			    var btDay = btMs / (1000*60*60*24) ;
-			    var btDayResult = Math.floor(btDay);
+				var now_Date = new Date();	 //현재날짜
+				var returnExpectDay = new Date($("#returnExpectDay").val()); //비교날짜
+				var btMs = returnExpectDay.getTime() - now_Date.getTime() ; //밀리세컨드단위변환한후 연산
+				var btDay = btMs / (1000*60*60*24) ; //밀리세컨*초*분*시 일로 변환
+				var btDayResult = Math.floor(btDay); //소수점 제거
 			    
 			    console.log(btDayResult);
 			    
-			    var price = btDayResult*100;
+			    var price = btDayResult*100;//임시단가
 			    $("#rentalPrice").val(price);
 
 			}
-				//$("#memberlogin").submit();
-			})
-		})
+		});
+	});
 </script>
 </head>
 <body>
