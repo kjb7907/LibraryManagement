@@ -4,6 +4,35 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="com.naver.blog.LibMapper">
+	<!-- 도서 반납 -->
+	<update id="updateReturnBook" parameterType="String">
+		UPDATE 
+			rental 
+		SET 
+			RETURNDAY = now(),
+			RETURNSTATUS='반납' 
+		WHERE 
+			RENTALCODE = #{rentalCode}; 
+	</update>
+	
+	<!-- 도서 대여가능 상태 변경 + 카운터증가 -->
+	<update id="updateBookStatusCount" parameterType="String">
+		UPDATE 
+			books  
+		SET 
+			CURRENTSTATUS='대여가능' ,
+			RENTALCOUNT =RENTALCOUNT+1 ,
+			RENTALDAYS=1 
+		WHERE 
+			BOOKCODE=(
+				SELECT 
+					rental.BOOKCODE 
+				FROM 
+					rental 
+				WHERE 
+					rental.RENTALCODE=#{rentalCode}
+			); 
+	</update>
 	
 	<!-- 대여 -->
 	<insert id="insertRental" parameterType="com.naver.blog.valueObject.Rental" 

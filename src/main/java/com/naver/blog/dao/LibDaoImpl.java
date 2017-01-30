@@ -51,5 +51,17 @@ public class LibDaoImpl implements LibDao{
 		logger.debug("updateBookStatus");
 		return sqlSession.insert(BOARD_NS+"updateBookStatus",bookCode);
 	}
+	//도서 반납
+	@Override
+	public int updateReturnBook(Rental rental) {
+		logger.debug("updateReturnBooks");
+		return sqlSession.insert(BOARD_NS+"updateReturnBook",rental.getRentalCode());
+	}
+	//도서 대여가능 상태 변경 + 카운터증가
+	@Override
+	public int updateBookStatusCount(Rental rental) {
+		logger.debug("updateBookStatusCount");
+		return sqlSession.insert(BOARD_NS+"updateBookStatusCount",rental.getRentalCode());
+	}
 
 }

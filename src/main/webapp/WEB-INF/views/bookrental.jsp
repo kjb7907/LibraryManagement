@@ -75,7 +75,7 @@
 						<!-- 도서코드 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >도서코드</label>
-						  <input type="text" name="bookCode" placeholder="ex 100">
+						  <input type="text" name="bookCode" placeholder="ex 800000">
 						</div>
 						
 						<!-- 대여자ID -->

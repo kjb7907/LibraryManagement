@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.naver.blog.service.LibService;
 import com.naver.blog.service.LibServiceImpl;
@@ -23,6 +24,21 @@ public class LibController {
 	
 	@Autowired
 	LibService libService;
+	
+	//도서반납화면
+	@RequestMapping(value = "bookreturn", method = RequestMethod.GET)
+	public String bookReturn(){
+		logger.debug("bookreturn form");
+		return "bookreturn";
+	}
+	//도서반납 process
+	@RequestMapping(value = "bookreturn", method = RequestMethod.POST)
+	public String bookReturn(Rental rental){
+		logger.debug("bookreturn process");
+		logger.debug(rental.toString());
+		libService.returnBook(rental);
+		return "main";
+	}
 	
 	//도서대여화면
 	@RequestMapping(value = "bookrental", method = RequestMethod.GET)

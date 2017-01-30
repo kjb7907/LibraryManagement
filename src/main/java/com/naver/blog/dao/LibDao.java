@@ -9,4 +9,6 @@ public interface LibDao {
 	int insertPayMent(Rental rental);
 	int updateMemberRentCount(String id);
 	int updateBookStatus(int bookCode);
+	int updateReturnBook(Rental rental);
+	int updateBookStatusCount(Rental rental);
 }

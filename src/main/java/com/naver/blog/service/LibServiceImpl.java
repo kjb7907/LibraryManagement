@@ -35,5 +35,14 @@ public class LibServiceImpl implements LibService {
 		libDao.updateMemberRentCount(rental.getMemberId()); //회원대여카운트 증가
 		return 0;
 	}
+	//도서 반납
+	@Override
+	public int returnBook(Rental rental) {
+		logger.debug("returnBook");
+		libDao.updateReturnBook(rental);//반납
+		libDao.updateBookStatusCount(rental); //대여상태변경/대여카운트 증가
+		
+		return 0;
+	}
 
 }
