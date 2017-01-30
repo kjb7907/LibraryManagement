@@ -33,20 +33,16 @@
 		
 		$("#btn").click(function(){
 			console.log("버튼클릭");
-			if($("#rentalPrice").val() == ""){
-				
-				var now_Date = new Date();	 //현재날짜
-				var returnExpectDay = new Date($("#returnExpectDay").val()); //비교날짜
-				var btMs = returnExpectDay.getTime() - now_Date.getTime() ; //밀리세컨드단위변환한후 연산
-				var btDay = btMs / (1000*60*60*24) ; //밀리세컨*초*분*시 일로 변환
-				var btDayResult = Math.floor(btDay); //소수점 제거
-			    
-			    console.log(btDayResult);
-			    
-			    var price = btDayResult*100;//임시단가
-			    $("#rentalPrice").val(price);
-
-			}
+			var now_Date = new Date();	 //현재날짜
+			var returnExpectDay = new Date($("#returnExpectDay").val()); //비교날짜
+			var btMs = returnExpectDay.getTime() - now_Date.getTime() ; //밀리세컨드단위변환한후 연산
+			var btDay = btMs / (1000*60*60*24) ; //밀리세컨*초*분*시 일로 변환
+			var btDayResult = Math.floor(btDay); //소수점 제거
+		    
+		    console.log(btDayResult);
+		    
+		    var price = btDayResult*100;//임시단가
+		    $("#rentalPrice").val(price);
 		});
 	});
 </script>
@@ -72,20 +68,20 @@
 		</ol>
 		<div class="ui raised segment">
 			
-				<form class="ui form" method="post" action="/bookadd">
+				<form class="ui form" method="post" action="/bookrental">
 					<h2 class="ui dividing header">Book Rental</h2>
 					
 					<div class="fields">
 						<!-- 도서코드 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >도서코드</label>
-						  <input type="text" name="libCode" placeholder="ex 100">
+						  <input type="text" name="bookCode" placeholder="ex 100">
 						</div>
 						
 						<!-- 대여자ID -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >대여자ID</label>
-						  <input type="text" name="bookName" placeholder="도서명">
+						  <input type="text" name="memberId" placeholder="도서명">
 						</div>
 											
 						<!-- 반납예정일 -->

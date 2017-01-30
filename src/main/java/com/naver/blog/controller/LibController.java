@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.naver.blog.service.LibService;
 import com.naver.blog.service.LibServiceImpl;
 import com.naver.blog.valueObject.Book;
+import com.naver.blog.valueObject.Rental;
 
 /**
  * Handles requests for the application home page.
@@ -28,6 +29,14 @@ public class LibController {
 	public String bookRental(){
 		logger.debug("bookrental form");
 		return "bookrental";
+	}
+	//도서대여 process
+	@RequestMapping(value = "bookrental", method = RequestMethod.POST)
+	public String bookRental(Rental rental){
+		logger.debug("bookrental process");
+		logger.debug(rental.toString());
+		libService.rentalBook(rental);
+		return "main";
 	}
 
 	//도서등록화면
