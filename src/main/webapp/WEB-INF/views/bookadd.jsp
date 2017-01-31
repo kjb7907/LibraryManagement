@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,8 +36,13 @@
 					<div class="fields">
 						<!-- 도서관코드 -->
 						<div class="field col-sm-4">
-						  <label style= font-size:12px;" >도서관코드</label>
-						  <input type="text" name="libCode" placeholder="ex 100">
+							  <label style= font-size:12px;" >도서관코드</label>
+							  <select name =libCode>
+							  	<option value="">도서관선택</option>
+							  	<c:forEach var="lib" items="${list}">
+							  		<option value="${lib.libCode}">${lib.libCode} ${lib.libName}</option>
+							  	</c:forEach>
+							  </select>
 						</div>
 						
 						<!-- 도서명 -->

@@ -1,5 +1,7 @@
 package com.naver.blog.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.naver.blog.valueObject.Book;
+import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
 
 @Repository
@@ -62,6 +65,12 @@ public class LibDaoImpl implements LibDao{
 	public int updateBookStatusCount(Rental rental) {
 		logger.debug("updateBookStatusCount");
 		return sqlSession.insert(BOARD_NS+"updateBookStatusCount",rental.getRentalCode());
+	}
+	
+	//도서관코드 가져오기
+	@Override
+	public List<Lib> selectLib() {
+		return sqlSession.selectList(BOARD_NS+"selectLib");
 	}
 
 }

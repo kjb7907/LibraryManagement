@@ -1,9 +1,12 @@
 package com.naver.blog.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.naver.blog.service.LibService;
 import com.naver.blog.service.LibServiceImpl;
 import com.naver.blog.valueObject.Book;
+import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
 
 /**
@@ -57,8 +61,10 @@ public class LibController {
 
 	//도서등록화면
 	@RequestMapping(value = "bookadd", method = RequestMethod.GET)
-	public String bookadd(){
+	public String bookadd(Model model){
 		logger.debug("bookadd form");
+		List<Lib> list = libService.importLib();
+		model.addAttribute("list",list);
 		return "bookadd";
 	}
 	//도서등록 process

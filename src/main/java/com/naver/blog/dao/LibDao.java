@@ -1,6 +1,9 @@
 package com.naver.blog.dao;
 
+import java.util.List;
+
 import com.naver.blog.valueObject.Book;
+import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
 
 public interface LibDao {
@@ -11,4 +14,5 @@ public interface LibDao {
 	int updateBookStatus(int bookCode);
 	int updateReturnBook(Rental rental);
 	int updateBookStatusCount(Rental rental);
+	List<Lib> selectLib();
 }

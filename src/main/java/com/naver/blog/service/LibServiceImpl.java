@@ -1,5 +1,7 @@
 package com.naver.blog.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.naver.blog.controller.LibController;
 import com.naver.blog.dao.LibDao;
 import com.naver.blog.valueObject.Book;
+import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
 
 @Service
@@ -43,6 +46,12 @@ public class LibServiceImpl implements LibService {
 		libDao.updateBookStatusCount(rental); //대여상태변경/대여카운트 증가
 		
 		return 0;
+	}
+	
+	//도서관정보 가져오기
+	@Override
+	public List<Lib> importLib() {
+		return libDao.selectLib();
 	}
 
 }
