@@ -101,5 +101,12 @@ public class LibServiceImpl implements LibService {
 		return 0;
 	}
 
+	//지점등록
+	@Override
+	public int libadd(Lib lib) {
+		logger.debug("libadd service");
+		return libDao.libadd(lib);
+	}
+
 
 }

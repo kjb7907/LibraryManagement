@@ -5,6 +5,20 @@
  
 <mapper namespace="com.naver.blog.LibMapper">
 
+	<!-- 지점등록 -->
+	<insert id="libadd" parameterType="com.naver.blog.valueObject.Lib">
+		INSERT INTO
+			LIB(
+				lib.LIBNAME,
+				lib.LIBLOCATION
+				)
+		VALUE(
+			#{libName},
+			#{libLocation}
+			)
+	</insert>
+
+	<!-- 폐기등록 -->
 	<insert id="bookdisinsert" parameterType="int">
 		INSERT INTO
 			discardbooks(

@@ -38,6 +38,15 @@ public class LibController {
 		return "libadd";
 	}
 	
+	//도서관등록  process
+	@RequestMapping(value = "libadd", method = RequestMethod.POST)
+	public String libadd(Lib lib){
+		logger.debug("libadd process");
+		
+		libService.libadd(lib);
+		return "redirect:/main";
+	}
+	
 	//도서폐기
 	@RequestMapping(value = "bookdis", method = RequestMethod.GET)
 	public String bookdis(){

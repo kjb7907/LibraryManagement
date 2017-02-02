@@ -23,4 +23,5 @@ public interface LibDao {
 	Lib selectOneLib(int libCode);						//하나의 도서관 정보 가져오기
 	int bookdis(int bookCode);							//도서폐기 대여불가능
 	int bookdisinsert(int bookCode);					//도서폐기 등록
+	int libadd(Lib lib);								//지점등록
 }

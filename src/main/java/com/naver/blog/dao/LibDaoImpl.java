@@ -119,4 +119,10 @@ public class LibDaoImpl implements LibDao{
 		return sqlSession.insert(BOARD_NS+"bookdisinsert",bookCode);
 	}
 
+	@Override
+	public int libadd(Lib lib) {
+		logger.debug("libadd Dao");
+		return sqlSession.insert(BOARD_NS+"libadd",lib);
+	}
+
 }
