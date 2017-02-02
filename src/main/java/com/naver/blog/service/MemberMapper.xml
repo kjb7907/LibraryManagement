@@ -5,6 +5,16 @@
  
 <mapper namespace="com.naver.blog.MemberMapper">
 
+	<!-- 아이디로 하나의 회원정보 조회-->
+	<select id="selectOneMember" resultType="com.naver.blog.valueObject.Member" parameterType="String">
+		SELECT
+			*
+		FROM
+			member
+		WHERE
+			member.MEMBERID=#{memberId};
+	</select>
+
 	<!--회원등록 insert member-->
  	<insert id="insertMember" parameterType="com.naver.blog.valueObject.Member">
 	 	INSERT INTO 

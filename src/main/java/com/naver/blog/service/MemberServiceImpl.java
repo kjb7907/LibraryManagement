@@ -26,5 +26,15 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.insertMember(member);
 	}
 
+	//아이디로 하나의회원 조회
+	@Override
+	public Member selectOneMember(String memberId) {
+		return memberDao.selectOneMember(memberId);
+	}
+
+
+
+
+
 
 }

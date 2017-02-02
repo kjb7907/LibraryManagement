@@ -26,5 +26,11 @@ public class MemberDaoImpl implements MemberDao{
 		return sqlSession.insert(BOARD_NS+"insertMember",member);
 	}
 
+	//아이디로 하나의회원 조회
+	@Override
+	public Member selectOneMember(String memberId) {
+		return sqlSession.selectOne(BOARD_NS+"selectOneMember",memberId);
+	}
+
 	
 }

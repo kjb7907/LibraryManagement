@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.naver.blog.dao.MemberDaoImpl;
 import com.naver.blog.service.MemberService;
@@ -25,6 +27,15 @@ public class MemberController {
 	
 	@Autowired
 	MemberServiceImpl memberService;
+	
+	//id로 하나의 회원 조회
+	@RequestMapping(value = "selectOneMember", method = RequestMethod.GET)
+	public @ResponseBody Member selectOneMember(
+			@RequestParam(value = "memberId") String memberId){
+		logger.debug("selectOneMember");
+		Member member=memberService.selectOneMember(memberId);
+		return member;
+	}
 	
 	//메인페이지
 	@RequestMapping(value = "main", method = RequestMethod.GET)

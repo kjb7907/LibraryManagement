@@ -19,10 +19,17 @@
 </script>
 
 <script>
-	$(document).ready(function(){
+var memberPrice; //회원 비회원 단가 변수
 
+//단가세팅함수
+var setMemberPrice = function(price) {
+	memberPrice=price
+}
+
+	$(document).ready(function(){
+	
 		var nowDate = new Date(); //현재날짜 객체 생성
-		nowDate.setDate(nowDate.getDate()+5); // 현재날짜일수에 +5일 한 날짜 set
+		nowDate.setDate(nowDate.getDate()+5); // 현재날짜일수에 +5일 한 날짜 set(기본대여일)
 		
 		//반납예정일 변수
 		var returnExpectDay = dateToYYYYMMDD(nowDate); //YYYY-MM-DD 형식으로변환
@@ -33,6 +40,22 @@
 		
 		$("#btn").click(function(){
 			console.log("버튼클릭");
+			
+	        $.ajax({
+	            url:'/selectOneMember',
+	            type:'get',
+	            data:{memberId:$('#memberId').val()},
+	    		dataType : "json",
+	            success:function(data){
+	                console.log('success');
+	                if(data.memberPaymentStatus=='미입금'){
+	                	setMemberPrice(200);
+	                }else{
+	                	setMemberPrice(100);
+	                }
+	            }
+	        });
+	        
 			var now_Date = new Date();	 //현재날짜
 			var returnExpectDay = new Date($("#returnExpectDay").val()); //비교날짜
 			var btMs = returnExpectDay.getTime() - now_Date.getTime() ; //밀리세컨드단위변환한후 연산
@@ -40,8 +63,8 @@
 			var btDayResult = Math.floor(btDay); //소수점 제거
 		    
 		    console.log(btDayResult);
-		    
-		    var price = btDayResult*100;//임시단가
+		    console.log(memberPrice)
+		    var price = btDayResult*memberPrice;//일수*회원/비회원 단가
 		    $("#rentalPrice").val(price);
 		});
 	});
@@ -81,7 +104,7 @@
 						<!-- 대여자ID -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >대여자ID</label>
-						  <input type="text" name="memberId" placeholder="도서명">
+						  <input type="text" name="memberId" id="memberId" placeholder="도서명">
 						</div>
 											
 						<!-- 반납예정일 -->
