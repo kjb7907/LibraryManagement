@@ -46,6 +46,14 @@ public class LibController {
 		return "bookdis";
 	}
 	
+	//도서폐기 process
+	@RequestMapping(value = "bookdis", method = RequestMethod.POST)
+	public String bookdis(
+			@RequestParam(value = "bookCode") int bookCode){
+		logger.debug("bookdis");
+		libService.bookdis(bookCode);
+		return "redirect:/main";
+	}
 	//도서조회 폼
 	@RequestMapping(value = "booksearch", method = RequestMethod.GET)
 	public String bookSearch(){

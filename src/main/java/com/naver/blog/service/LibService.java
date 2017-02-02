@@ -15,5 +15,5 @@ public interface LibService {
 	List<Lib> importLib();						//도서관정보 리스트 가져오기
 	Rental oneSelectRental(int rentalCode);		//하나의 대여정보 대여코드로 조회
 	List<Book> bookSearch(SearchVO searchVo);	//검색조건에 일치하는 도서정보리스트 가져오기
-	
+	int bookdis(int bookCode);							//도서폐기
 }

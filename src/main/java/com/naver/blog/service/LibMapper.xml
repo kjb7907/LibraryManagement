@@ -5,6 +5,28 @@
  
 <mapper namespace="com.naver.blog.LibMapper">
 
+	<insert id="bookdisinsert" parameterType="int">
+		INSERT INTO
+			discardbooks(
+				BOOKCODE,
+				DISCARDREASON
+			)
+		VALUES(
+		#{bookCode},
+		'파손'
+		);
+	</insert>
+
+	<!-- 폐기도서 대여 불가능상태로 변경 -->
+	<update id="bookdis" parameterType="int">
+		UPDATE 
+			books
+		SET 
+			books.CURRENTSTATUS='대여불가능' 
+		WHERE 
+			books.BOOKCODE=#{bookCode}; 
+	</update>
+
 	<!-- 하나의 도서관 정보 조회 -->
 	<select id="selectOneLib" resultType="com.naver.blog.valueObject.Lib" parameterType="int">
 		SELECT

@@ -21,4 +21,6 @@ public interface LibDao {
 	Book selectOneBook(int bookCode);					//하나의 도서정보 도서코드로 조회
 	List<Book> selectSearchBook(SearchVO searchVo);		//검색 조건에 맞는 도서리스트 가져오기
 	Lib selectOneLib(int libCode);						//하나의 도서관 정보 가져오기
+	int bookdis(int bookCode);							//도서폐기 대여불가능
+	int bookdisinsert(int bookCode);					//도서폐기 등록
 }

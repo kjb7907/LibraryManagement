@@ -93,5 +93,13 @@ public class LibServiceImpl implements LibService {
 		return list;
 	}
 
+	//도서폐기
+	@Override
+	public int bookdis(int bookCode) {
+		libDao.bookdis(bookCode);
+		libDao.bookdisinsert(bookCode);
+		return 0;
+	}
+
 
 }

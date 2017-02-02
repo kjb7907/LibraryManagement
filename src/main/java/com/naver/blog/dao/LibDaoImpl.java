@@ -107,4 +107,16 @@ public class LibDaoImpl implements LibDao{
 		return sqlSession.selectOne(BOARD_NS+"selectOneLib",libCode);
 	}
 
+	//도서폐기 대여불가능 
+	@Override
+	public int bookdis(int bookCode) {
+		return sqlSession.update(BOARD_NS+"bookdis",bookCode);
+	}
+
+	//도서폐기 등록
+	@Override
+	public int bookdisinsert(int bookCode) {
+		return sqlSession.insert(BOARD_NS+"bookdisinsert",bookCode);
+	}
+
 }
