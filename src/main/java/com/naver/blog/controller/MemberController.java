@@ -63,7 +63,7 @@ public class MemberController {
 		result = memberService.adminLogin(admin);
 		if(result==1){
 			session.setAttribute("LEVEL", "관리자");
-			return "main";
+			return "redirect:/main";
 		}
 		return "login";
 	}
@@ -73,7 +73,7 @@ public class MemberController {
 	public String logout(HttpSession session){
 		logger.debug("logout process");
 		session.invalidate();
-		return "main";
+		return "redirect:main";
 	}
 	
 	//회원가입화면

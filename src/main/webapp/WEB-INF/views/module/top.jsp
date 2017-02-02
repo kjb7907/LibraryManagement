@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,11 +43,18 @@
           <a class="ui item">
             <h6>사이트맵</h6>
           </a>
-          <a href="/memberadd" class="ui item">
-            <h6>회원가입</h6>
-          </a>
-          <a href="login" class="ui item">
-            <h6>로그인</h6>
+          <%if(session.getAttribute("LEVEL")!=null){ %>
+	            <h6 class="ui item">관리자 님 환영합니다.</h6>
+	         
+	          <a href="logout" class="ui item">
+	            <h6>로그아웃</h6>
+    	  <%} else{%>
+ 	  	      <a href="/memberadd" class="ui item">
+	            <h6>회원가입</h6>
+	          </a>
+	          <a href="login" class="ui item">
+	            <h6>로그인</h6>
+    	  <%} %>
           </a>
         </div>
       </div>
