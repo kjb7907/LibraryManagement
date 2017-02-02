@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.naver.blog.valueObject.Admin;
 import com.naver.blog.valueObject.Member;
 
 @Repository
@@ -30,6 +31,12 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public Member selectOneMember(String memberId) {
 		return sqlSession.selectOne(BOARD_NS+"selectOneMember",memberId);
+	}
+
+	//관리자로그인
+	@Override
+	public Admin adminLogin(Admin admin) {
+		return sqlSession.selectOne(BOARD_NS+"adminLogin",admin);
 	}
 
 	

@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.naver.blog.dao.MemberDaoImpl;
 import com.naver.blog.service.MemberService;
 import com.naver.blog.service.MemberServiceImpl;
+import com.naver.blog.valueObject.Admin;
 import com.naver.blog.valueObject.Member;
 
 @Controller
@@ -44,11 +47,33 @@ public class MemberController {
 		return "main";
 	}
 	
-	//로그인화면
+	//관리자로그인화면
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login(){
 		logger.debug("login form");
 		return "login";
+	}
+	
+	//관리자로그인 process
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String login(HttpSession session,Admin admin){
+		logger.debug("login process");
+		logger.debug(admin.toString());
+		int result = 0;
+		result = memberService.adminLogin(admin);
+		if(result==1){
+			session.setAttribute("LEVEL", "관리자");
+			return "main";
+		}
+		return "login";
+	}
+	
+	//관리자 로그아웃 process
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(HttpSession session){
+		logger.debug("logout process");
+		session.invalidate();
+		return "main";
 	}
 	
 	//회원가입화면

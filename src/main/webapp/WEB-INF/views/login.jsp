@@ -17,21 +17,21 @@
         	Admin Login
       </div>
     </h2>
-    <form class="ui large form">
+    <form class="ui large form" action="/login" method="post">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" class="form-control"name="email" placeholder="ID">
+            <input type="text" class="form-control"name="AdminId" placeholder="ID">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" class="form-control" name="password" placeholder="Password">
+            <input type="password" class="form-control" name="AdminPw" placeholder="Password">
           </div>
         </div>
-        <div class="ui fluid big teal submit button">로그인</div>
+       	<input type="submit" value="로그인" class="ui fluid big teal submit button">
       </div>
 
       <div class="ui error message"></div>
