@@ -14,7 +14,7 @@
     <h2 class="ui teal image header">
       <img src="/resources/public/logo.png" class="image">
       <div class="content">
-        Log-in to your account
+        	Admin Login
       </div>
     </h2>
     <form class="ui large form">

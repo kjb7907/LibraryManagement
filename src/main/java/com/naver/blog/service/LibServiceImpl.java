@@ -85,8 +85,8 @@ public class LibServiceImpl implements LibService {
 		List<Book> list = libDao.selectSearchBook(searchVo);//도서 리스트 가져오기
 		//Book객체에 담긴 도서관코드와 일치하는 도서관 정보 book 객체에 세팅
 		for(int i=0;i<list.size();i++){
-			Book book = list.get(i);
-			Lib lib=libDao.selectOneLib(Integer.parseInt(book.getLibCode())); //도서관정보 가져오기
+			Book book = list.get(i); //book객체에 리스트에 담긴 객체 세팅
+			Lib lib=libDao.selectOneLib(book.getLibCode()); //도서관정보 가져오기
 			book.setLib(lib); //도서관정보 세팅
 		}
 		

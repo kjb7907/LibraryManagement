@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +39,7 @@ public class LibController {
 	
 	//도서조회 process
 	@RequestMapping(value = "booksearch", method = RequestMethod.POST)
-	public List<Book> bookSearch(SearchVO searchVo){
+	public @ResponseBody List<Book> bookSearch(SearchVO searchVo){
 		logger.debug("bookSearch process");
 		logger.debug("검색조건 : "+searchVo.getSearchOption());
 		logger.debug("검색문 : "+searchVo.getSearchValue());

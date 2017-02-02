@@ -6,7 +6,7 @@
 <mapper namespace="com.naver.blog.LibMapper">
 
 	<!-- 하나의 도서관 정보 조회 -->
-	<select id="selectOneLib" resultType="com.naver.blog.valueObject.Lib" parameterType="String">
+	<select id="selectOneLib" resultType="com.naver.blog.valueObject.Lib" parameterType="int">
 		SELECT
 			LIBCODE,
 			LIBNAME,
@@ -23,6 +23,7 @@
 			books.LIBCODE AS libCode,
 			books.WRITER AS writer,
 			books.PUBLISHER AS publisher,
+			books.CATEGORY AS category,
 			books.GENRE AS genre,
 			books.BOOKLOCATION AS bookLocation,
 			books.CURRENTSTATUS AS currentStatus,

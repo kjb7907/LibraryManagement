@@ -9,7 +9,6 @@
 <script>
 	$(document).on('click','#btn1',function(){
     	console.log('버튼클릭');
-    	console.log('rentalCode'+$('#rentalCode').val());
         $.ajax({
             url:'/booksearch',
             type:'post',
@@ -17,19 +16,21 @@
     		dataType : "json",
             success:function(data){
                 console.log('success');
-                /*
-                var rental = data.rental
-                console.log(data);
-                console.log(data.book);
-                $('#bookName').text(data.book.bookName);
-                $('#memberId').text(data.memberId);
-                $('#rentalStartDay').text(data.rentalStartDay);
-                $('#returnExpectDay').text(data.returnExpectDay);
-                $('#returnDay').text(data.returnDay);
-                $('#returnStatus').text(data.returnStatus);
-                $('#rentalPrice').text(data.rentalPrice);
-                $('#result1').css("display","");
-                */
+                var list = data
+                $("#result1").css("display","");
+	                
+    			$.each(list, function(i) {
+    				console.log(list[i]);
+    				$("#searchList").append("<tr>");
+    				$("#searchList").append("<td>" + list[i].bookName + "</td>");
+    				$("#searchList").append("<td>" + list[i].writer + "</td>");
+    				$("#searchList").append("<td>" + list[i].publisher + "</td>");
+    				$("#searchList").append("<td>" + list[i].category + "</td>");
+    				$("#searchList").append("<td>" + list[i].lib.libName + "</td>");
+    				$("#searchList").append("<td>" + list[i].bookLocation + "</td>");
+    				$("#searchList").append("<td>" + list[i].currentStatus + "</td>");
+    				$("#searchList").append("</tr>");
+   				});     
             }
         });
     });
@@ -77,34 +78,26 @@
 						
 					<div id="result1" style="display:none">
 						<table class="table">
-							<tr>
-								<th>도서명</th>
-								<th>대여자</th>
-								<th>대여시작일</th>
-								<th>반납 예정일</th>
-								<th>반납일</th>
-								<th>반납상태</th>
-								<th>결제금액</th>
-							</tr>
-							<tr>
-								<td><span id="bookName"></span></td>
-								<td><span id="memberId"></span></td>
-								<td><span id="rentalStartDay"></span></td>
-								<td><span id="returnExpectDay"></span></td>
-								<td><span id="returnDay"></span></td>
-								<td><span id="returnStatus"></span></td>
-								<td><span id="rentalPrice"></span></td>
-							</tr>
+						
+							<thead>
+								<tr>
+									<th>도서명</th>
+									<th>작가</th>
+									<th>출판사</th>
+									<th>카테고리</th>
+									<th>장르</th>
+									<th>소장도서관</th>
+									<th>위치</th>
+									<th>현재대여가능여부</th>
+								</tr>
+							</thead>
+							
+							<tbody id ="searchList">
+
+							</tbody>
+							
 						</table>
 					</div>
-					 
-					<!-- 버튼 -->
-	                <div class="form-group">
-	                  <div class="col-lg-10">
-	                    <button type="reset" class="big ui grey button">reset</button>
-	                    <button type="submit" class="big ui teal button">도서반납</button>
-	                  </div>
-	                </div>
 	                           
 	                <div class="field"></div>	
                 	 
