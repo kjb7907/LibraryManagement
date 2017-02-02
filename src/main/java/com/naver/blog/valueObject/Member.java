@@ -1,8 +1,9 @@
 package com.naver.blog.valueObject;
 
+//회원가입및 정보 조회를 위한 클래스
 public class Member {
-	private String id;					//아이디
-	private String pw;					//비밀번호
+	private String id;						//아이디
+	private String pw;						//비밀번호
 	private String name;					//이름
 	private String birth;					//생년월일
 	private String phone;					//전화번호
@@ -10,8 +11,7 @@ public class Member {
 	private String joinDay; 				//가입일
 	private int libCode;					//도서관코드
 	private String rentalCount; 			//대여회수
-	private String memberPaymentStatus;	//회원비입금여부
-	
+	private String memberPaymentStatus;		//회원비입금여부
 	
 	
 	public String getId() {

@@ -60,7 +60,9 @@
 			Rental
 		INNER JOIN
 			payment
-		ON 
+		ON
+			rental.RENTALCODE = payment.RENTALCODE
+		WHERE
 			rental.RENTALCODE = #{rentalCode};
 	</select>
 
@@ -72,6 +74,7 @@
 			LIBLOCATION
 		FROM lib
 	</select>
+	
 	<!-- 도서 반납 -->
 	<update id="updateReturnBook" parameterType="String">
 		UPDATE 

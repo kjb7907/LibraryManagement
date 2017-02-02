@@ -1,8 +1,9 @@
 package com.naver.blog.valueObject;
 
+//대여정보 조회 및 입출력을 위한 클래스
 public class Rental {
 	private String rentalCode;			//대여코드
-	private Book book;						//대여한책
+	private Book book;					//대여한책
 	private int bookCode;				//도서관리코드
 	private String memberId;			//대여자 id
 	private String rentalStartDay;		//대여 시작일
@@ -10,6 +11,8 @@ public class Rental {
 	private int rentalPrice;			//대여금액
 	private String returnDay;			//반납일
 	private String returnStatus; 		//반납상태
+	
+	
 	@Override
 	public String toString() {
 		return "Rental [rentalCode=" + rentalCode + ", book=" + book + ", bookCode=" + bookCode + ", memberId="

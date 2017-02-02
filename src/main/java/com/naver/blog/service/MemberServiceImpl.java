@@ -22,7 +22,6 @@ public class MemberServiceImpl implements MemberService{
 	//회원가입 memberAdd
 	@Override
 	public int memberAdd(Member member) {
-		
 		logger.debug("memberAdd Service");
 		return memberDao.insertMember(member);
 	}

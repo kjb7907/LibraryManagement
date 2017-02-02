@@ -20,9 +20,6 @@ import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
 import com.naver.blog.valueObject.SearchVO;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class LibController {
 	

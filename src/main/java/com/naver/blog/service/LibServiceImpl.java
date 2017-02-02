@@ -26,6 +26,7 @@ public class LibServiceImpl implements LibService {
 	@Override
 	public int bookAdd(Book book) {
 		logger.debug("bookAdd");
+		
 		return libDao.insertbook(book);
 	}
 	
@@ -33,10 +34,12 @@ public class LibServiceImpl implements LibService {
 	@Override
 	public int rentalBook(Rental rental) {
 		logger.debug("rentalBook");
+		
 		libDao.insertRental(rental); //대여
 		libDao.insertPayMent(rental); //결제
 		libDao.updateBookStatus(rental.getBookCode()); //대여상태 불가능으로 변경
 		libDao.updateMemberRentCount(rental.getMemberId()); //회원대여카운트 증가
+		
 		return 0;
 	}
 	
@@ -44,16 +47,18 @@ public class LibServiceImpl implements LibService {
 	@Override
 	public int returnBook(Rental rental) {
 		logger.debug("returnBook");
+		
 		libDao.updateReturnBook(rental);//반납
 		libDao.updateBookStatusCount(rental); //대여상태변경/대여카운트 증가
 		
 		return 0;
 	}
 	
-	//도서관정보 가져오기
+	//도서관정보 리스트 가져오기
 	@Override
 	public List<Lib> importLib() {
 		logger.debug("importLib");
+		
 		return libDao.selectLib();
 	}
 	
@@ -61,32 +66,32 @@ public class LibServiceImpl implements LibService {
 	@Override
 	public Rental oneSelectRental(int rentalCode) {
 		logger.debug("oneSelectRental");
-		Rental rental = libDao.selectOneRental(rentalCode);
-		logger.debug(rental.toString());
-		int bookCode = rental.getBookCode();
+		
+		Rental rental = libDao.selectOneRental(rentalCode); //대여정보 가져오기
+		logger.debug(rental.toString());//가져온 대여정보 확인		
+		int bookCode = rental.getBookCode(); //대여정보의 도서코드 추출
+		//대여객체안의 도서코드와 일치하는 도서정보 대여객체에 세팅
 		rental.setBook(libDao.selectOneBook(bookCode));
-		logger.debug(rental.getBook().toString());
+		logger.debug(rental.getBook().toString()); //가져온 도서정보 확인
+		
 		return rental;
 	}
 	
+	//검색조건에 일치하는 도서정보리스트 가져오기
 	@Override
 	public List<Book> bookSearch(SearchVO searchVo) {
 		logger.debug("bookSearch");
 		
-		//도서관코드 이용해 book 객체에 도서관 정보 담기
-		List<Book> list = libDao.selectSearchBook(searchVo);
+		List<Book> list = libDao.selectSearchBook(searchVo);//도서 리스트 가져오기
+		//Book객체에 담긴 도서관코드와 일치하는 도서관 정보 book 객체에 세팅
 		for(int i=0;i<list.size();i++){
 			Book book = list.get(i);
-			Lib lib=libDao.selectOneLib(parseint(book.getLibCode()));
-			book.setLib(lib);
+			Lib lib=libDao.selectOneLib(Integer.parseInt(book.getLibCode())); //도서관정보 가져오기
+			book.setLib(lib); //도서관정보 세팅
 		}
 		
 		return list;
 	}
 
-	private int parseint(String libCode) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }

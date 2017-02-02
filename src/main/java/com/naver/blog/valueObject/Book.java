@@ -1,11 +1,12 @@
 package com.naver.blog.valueObject;
 
+//도서정보 및 대여정보를 위한 클래스
 public class Book {
 	private int bookCode;				//도서코드
-	private String libCode;			//도서관코드
+	private String libCode;				//도서관코드
 	private Lib lib;					//도서관
 	private String bookName;			//도서명
-	private String writer;			//작가
+	private String writer;				//작가
 	private String publisher;			//출판사
 	private String category;			//카테고리
 	private String genre;				//장르
@@ -13,7 +14,8 @@ public class Book {
 	private String currentStatus;		//현재대여여부
 	private String firstRentDay;		//최초대여일
 	private int rentalCount;			//대여카운트
-	private int rentalDays;			//대여일
+	private int rentalDays;				//대여일
+	
 	
 	@Override
 	public String toString() {

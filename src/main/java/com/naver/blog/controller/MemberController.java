@@ -17,9 +17,6 @@ import com.naver.blog.service.MemberService;
 import com.naver.blog.service.MemberServiceImpl;
 import com.naver.blog.valueObject.Member;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class MemberController {
 	
@@ -35,18 +32,21 @@ public class MemberController {
 		logger.debug("main page");
 		return "main";
 	}
+	
 	//로그인화면
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login(){
 		logger.debug("login form");
 		return "login";
 	}
+	
 	//회원가입화면
 	@RequestMapping(value = "memberadd", method = RequestMethod.GET)
 	public String memberadd(){
 		logger.debug("memberadd form");
 		return "memberadd";
 	}
+	
 	//회원가입 process
 	@RequestMapping(value = "memberadd", method = RequestMethod.POST)
 	public String memberadd(Member member){
@@ -55,6 +55,5 @@ public class MemberController {
 		memberService.memberAdd(member);
 		return "main";
 	}
-
 	
 }

@@ -30,7 +30,7 @@ public class LibDaoImpl implements LibDao{
 		return sqlSession.insert(BOARD_NS+"insertBook",book);
 	}
 	
-	//대여
+	//도서대여
 	@Override
 	public int insertRental(Rental rental) {
 		logger.debug("insertRental");
@@ -93,7 +93,7 @@ public class LibDaoImpl implements LibDao{
 		return sqlSession.selectOne(BOARD_NS+"selectOneBook", bookCode);
 	}
 	
-	//검색 조건에 맞는 도서 가져오기
+	//검색 조건에 맞는 도서리스트 가져오기
 	@Override
 	public List<Book> selectSearchBook(SearchVO searchVo) {
 		logger.debug("selectSearchBook");
