@@ -11,4 +11,5 @@ public interface LibService {
 	int rentalBook(Rental rental);
 	int returnBook(Rental rental);
 	List<Lib> importLib();
+	Rental oneSelectRental(int rentalCode);
 }

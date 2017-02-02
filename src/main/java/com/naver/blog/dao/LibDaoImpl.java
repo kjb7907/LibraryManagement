@@ -72,5 +72,16 @@ public class LibDaoImpl implements LibDao{
 	public List<Lib> selectLib() {
 		return sqlSession.selectList(BOARD_NS+"selectLib");
 	}
+	//하나의 대여정보 대여코드로 조회
+	@Override
+	public Rental selectOneRental(int rentalCode) {
+		return sqlSession.selectOne(BOARD_NS+"selectOneRental", rentalCode);
+	}
+	//하나의 도서정보 도서코드로 조회
+	@Override
+	public Book selectOneBook(int bookCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

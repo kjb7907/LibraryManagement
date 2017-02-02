@@ -15,4 +15,6 @@ public interface LibDao {
 	int updateReturnBook(Rental rental);
 	int updateBookStatusCount(Rental rental);
 	List<Lib> selectLib();
+	Rental selectOneRental(int rentalCode);
+	Book selectOneBook(int bookCode);
 }

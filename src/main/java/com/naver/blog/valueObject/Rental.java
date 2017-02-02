@@ -2,6 +2,7 @@ package com.naver.blog.valueObject;
 
 public class Rental {
 	private String rentalCode;			//대여코드
+	private Book book;						//대여한책
 	private int bookCode;				//도서관리코드
 	private String memberId;			//대여자 id
 	private String rentalStartDay;		//대여 시작일
@@ -61,6 +62,12 @@ public class Rental {
 	}
 	public void setReturnStatus(String returnStatus) {
 		this.returnStatus = returnStatus;
+	}
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
 	}
 
 }

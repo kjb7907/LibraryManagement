@@ -53,5 +53,12 @@ public class LibServiceImpl implements LibService {
 	public List<Lib> importLib() {
 		return libDao.selectLib();
 	}
+	
+	//하나의 대여정보 대여코드로 조회
+	@Override
+	public Rental oneSelectRental(int rentalCode) {
+		Rental rental = libDao.selectOneRental(rentalCode);
+		return rental;
+	}
 
 }

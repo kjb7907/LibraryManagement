@@ -5,6 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+	$(document).on('click','#btn1',function(){
+    	console.log('버튼클릭');
+    	console.log('rentalCode'+$('#rentalCode').val());
+        $.ajax({
+            url:'/oneSelectRental?rentalCode='+$('#rentalCode').val(),
+            success:function(data){
+                $('#time').append(data);
+            }
+        });
+    });
+</script>
 </head>
 <body>
 <%@include file="./module/top.jsp" %>
@@ -32,9 +45,10 @@
 					
 					<div class="fields">
 						<!-- 대여 -->
-						<div class="field col-sm-4">
+						<div class="field col-sm-8 form-group">
 						  <label style= font-size:12px;" >대여코드</label>
-						  <input type="text" name="rentalCode" placeholder="ex 1000000">
+						  <input type="text" name="rentalCode" id="rentalCode"placeholder="ex 1000000" style="width:200px">
+  	                      <button type="button" class="big ui primary button" id="btn1">대여정보확인</button>
 						</div>
 
 					</div>	

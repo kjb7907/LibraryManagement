@@ -4,6 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="com.naver.blog.LibMapper">
+	<!-- 회원가입시 도서관 목록 가져오기 -->
+	<select id="selectOneRental" resultType="com.naver.blog.valueObject.Rental" parameterType="int">
+		SELECT
+			LIBCODE,
+			LIBNAME,
+			LIBLOCATION
+		FROM lib
+	</select>
 
 	<!-- 회원가입시 도서관 목록 가져오기 -->
 	<select id="selectLib" resultType="com.naver.blog.valueObject.Lib">

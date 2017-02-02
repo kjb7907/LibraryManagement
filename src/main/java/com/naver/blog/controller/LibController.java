@@ -29,6 +29,16 @@ public class LibController {
 	@Autowired
 	LibService libService;
 	
+	//하나의 대여정보 대여코드로 조회
+	@RequestMapping(value = "oneSelectRental", method = RequestMethod.GET)
+	public String oneSelectRental(Model model,
+			@RequestParam(value = "rentalCode") int rentalCode){
+		logger.debug("oneSelectRental");
+		logger.debug(rentalCode+"");
+		Rental rental = libService.oneSelectRental(rentalCode);
+		return "main";
+	}
+	
 	//도서반납화면
 	@RequestMapping(value = "bookreturn", method = RequestMethod.GET)
 	public String bookReturn(){
