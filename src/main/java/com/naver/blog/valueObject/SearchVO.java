@@ -19,4 +19,5 @@ public class SearchVO {
 	public void setSearchValue(String searchValue) {
 		this.searchValue = searchValue;
 	}
+
 }

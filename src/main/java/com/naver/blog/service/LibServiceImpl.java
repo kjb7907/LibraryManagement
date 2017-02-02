@@ -53,12 +53,14 @@ public class LibServiceImpl implements LibService {
 	//도서관정보 가져오기
 	@Override
 	public List<Lib> importLib() {
+		logger.debug("importLib");
 		return libDao.selectLib();
 	}
 	
 	//하나의 대여정보 대여코드로 조회
 	@Override
 	public Rental oneSelectRental(int rentalCode) {
+		logger.debug("oneSelectRental");
 		Rental rental = libDao.selectOneRental(rentalCode);
 		logger.debug(rental.toString());
 		int bookCode = rental.getBookCode();
@@ -69,10 +71,22 @@ public class LibServiceImpl implements LibService {
 	
 	@Override
 	public List<Book> bookSearch(SearchVO searchVo) {
+		logger.debug("bookSearch");
+		
+		//도서관코드 이용해 book 객체에 도서관 정보 담기
 		List<Book> list = libDao.selectSearchBook(searchVo);
-		logger.debug(list.toString());
-		logger.debug(list.get(0).toString());
+		for(int i=0;i<list.size();i++){
+			Book book = list.get(i);
+			Lib lib=libDao.selectOneLib(parseint(book.getLibCode()));
+			book.setLib(lib);
+		}
+		
 		return list;
+	}
+
+	private int parseint(String libCode) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

@@ -5,10 +5,29 @@
  
 <mapper namespace="com.naver.blog.LibMapper">
 
+	<!-- 하나의 도서관 정보 조회 -->
+	<select id="selectOneLib" resultType="com.naver.blog.valueObject.Lib" parameterType="String">
+		SELECT
+			LIBCODE,
+			LIBNAME,
+			LIBLOCATION
+		FROM lib
+		WHERE
+			libcode=#{libCode};
+	</select>
+
 	<!-- 검색조건에 맞는 도서 조회 -->
 	<select id="selectSearchBook" resultType="com.naver.blog.valueObject.Book" parameterType="com.naver.blog.valueObject.SearchVO">
 		SELECT
-			* 
+			books.BOOKNAME AS bookName,
+			books.LIBCODE AS libCode,
+			books.WRITER AS writer,
+			books.PUBLISHER AS publisher,
+			books.GENRE AS genre,
+			books.BOOKLOCATION AS bookLocation,
+			books.CURRENTSTATUS AS currentStatus,
+			books.RENTALCOUNT AS rentalCount,
+			books.RENTALDAYS As rentalDays
 		from 
 			Books
 		WHERE 

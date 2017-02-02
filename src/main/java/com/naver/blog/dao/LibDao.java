@@ -19,4 +19,5 @@ public interface LibDao {
 	Rental selectOneRental(int rentalCode);
 	Book selectOneBook(int bookCode);
 	List<Book> selectSearchBook(SearchVO searchVo);
+	Lib selectOneLib(int libCode);
 }

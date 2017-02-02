@@ -1,18 +1,19 @@
 package com.naver.blog.valueObject;
 
 public class Book {
-	private int bookCode;
-	private String libCode;
-	private String bookName;
-	private String writer;
-	private String publisher;
-	private String category;
-	private String genre;
-	private String bookLocation;
-	private String currentStatus;
-	private String firstRentDay;
-	private int rentalCount;
-	private int rentalDays;
+	private int bookCode;				//도서코드
+	private String libCode;			//도서관코드
+	private Lib lib;					//도서관
+	private String bookName;			//도서명
+	private String writer;			//작가
+	private String publisher;			//출판사
+	private String category;			//카테고리
+	private String genre;				//장르
+	private String bookLocation;		//위치
+	private String currentStatus;		//현재대여여부
+	private String firstRentDay;		//최초대여일
+	private int rentalCount;			//대여카운트
+	private int rentalDays;			//대여일
 	
 	@Override
 	public String toString() {
@@ -34,6 +35,14 @@ public class Book {
 
 	public void setLibCode(String libCode) {
 		this.libCode = libCode;
+	}
+
+	public Lib getLib() {
+		return lib;
+	}
+
+	public void setLib(Lib lib) {
+		this.lib = lib;
 	}
 
 	public String getBookName() {
