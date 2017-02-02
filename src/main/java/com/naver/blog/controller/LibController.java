@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.naver.blog.dao.LibDao;
 import com.naver.blog.service.LibService;
 import com.naver.blog.service.LibServiceImpl;
 import com.naver.blog.valueObject.Book;
@@ -29,14 +31,21 @@ public class LibController {
 	@Autowired
 	LibService libService;
 	
+	//도서조회
+	@RequestMapping(value = "bookreturn", method = RequestMethod.GET)
+	public String bookSearch(){
+		logger.debug("bookSearch form");
+		return "bookearch";
+	}
+	
 	//하나의 대여정보 대여코드로 조회
 	@RequestMapping(value = "oneSelectRental", method = RequestMethod.GET)
-	public String oneSelectRental(Model model,
+	public @ResponseBody Rental oneSelectRental(Model model,
 			@RequestParam(value = "rentalCode") int rentalCode){
 		logger.debug("oneSelectRental");
 		logger.debug(rentalCode+"");
 		Rental rental = libService.oneSelectRental(rentalCode);
-		return "main";
+		return rental;
 	}
 	
 	//도서반납화면

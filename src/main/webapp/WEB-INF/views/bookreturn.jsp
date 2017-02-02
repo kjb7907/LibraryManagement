@@ -11,9 +11,23 @@
     	console.log('버튼클릭');
     	console.log('rentalCode'+$('#rentalCode').val());
         $.ajax({
-            url:'/oneSelectRental?rentalCode='+$('#rentalCode').val(),
+            url:'/oneSelectRental',
+            type:'get',
+            data:$('form').serialize(),
+    		dataType : "json",
             success:function(data){
-                $('#time').append(data);
+                console.log('success');
+                var rental = data.rental
+                console.log(data);
+                console.log(data.book);
+                $('#bookName').text(data.book.bookName);
+                $('#memberId').text(data.memberId);
+                $('#rentalStartDay').text(data.rentalStartDay);
+                $('#returnExpectDay').text(data.returnExpectDay);
+                $('#returnDay').text(data.returnDay);
+                $('#returnStatus').text(data.returnStatus);
+                $('#rentalPrice').text(data.rentalPrice);
+                $('#result1').css("display","");
             }
         });
     });
@@ -45,15 +59,36 @@
 					
 					<div class="fields">
 						<!-- 대여 -->
-						<div class="field col-sm-8 form-group">
+						<div class="field">
 						  <label style= font-size:12px;" >대여코드</label>
 						  <input type="text" name="rentalCode" id="rentalCode"placeholder="ex 1000000" style="width:200px">
   	                      <button type="button" class="big ui primary button" id="btn1">대여정보확인</button>
 						</div>
-
 					</div>	
 					
-
+						
+					<div id="result1" style="display:none">
+						<table class="table">
+							<tr>
+								<th>도서명</th>
+								<th>대여자</th>
+								<th>대여시작일</th>
+								<th>반납 예정일</th>
+								<th>반납일</th>
+								<th>반납상태</th>
+								<th>결제금액</th>
+							</tr>
+							<tr>
+								<td><span id="bookName"></span></td>
+								<td><span id="memberId"></span></td>
+								<td><span id="rentalStartDay"></span></td>
+								<td><span id="returnExpectDay"></span></td>
+								<td><span id="returnDay"></span></td>
+								<td><span id="returnStatus"></span></td>
+								<td><span id="rentalPrice"></span></td>
+							</tr>
+						</table>
+					</div>
 					 
 					<!-- 버튼 -->
 	                <div class="form-group">

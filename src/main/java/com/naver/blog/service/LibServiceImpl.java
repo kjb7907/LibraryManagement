@@ -61,6 +61,7 @@ public class LibServiceImpl implements LibService {
 		logger.debug(rental.toString());
 		int bookCode = rental.getBookCode();
 		rental.setBook(libDao.selectOneBook(bookCode));
+		logger.debug(rental.getBook().toString());
 		return rental;
 	}
 
