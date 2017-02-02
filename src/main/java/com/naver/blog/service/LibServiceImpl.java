@@ -12,6 +12,7 @@ import com.naver.blog.dao.LibDao;
 import com.naver.blog.valueObject.Book;
 import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
+import com.naver.blog.valueObject.SearchVO;
 
 @Service
 public class LibServiceImpl implements LibService {
@@ -20,14 +21,14 @@ public class LibServiceImpl implements LibService {
 	
 	@Autowired
 	LibDao libDao;
-	
+
 	//도서 등록
 	@Override
 	public int bookAdd(Book book) {
 		logger.debug("bookAdd");
 		return libDao.insertbook(book);
 	}
-
+	
 	//도서 대여
 	@Override
 	public int rentalBook(Rental rental) {
@@ -38,6 +39,7 @@ public class LibServiceImpl implements LibService {
 		libDao.updateMemberRentCount(rental.getMemberId()); //회원대여카운트 증가
 		return 0;
 	}
+	
 	//도서 반납
 	@Override
 	public int returnBook(Rental rental) {
@@ -63,6 +65,14 @@ public class LibServiceImpl implements LibService {
 		rental.setBook(libDao.selectOneBook(bookCode));
 		logger.debug(rental.getBook().toString());
 		return rental;
+	}
+	
+	@Override
+	public List<Book> bookSearch(SearchVO searchVo) {
+		List<Book> list = libDao.selectSearchBook(searchVo);
+		logger.debug(list.toString());
+		logger.debug(list.get(0).toString());
+		return list;
 	}
 
 }

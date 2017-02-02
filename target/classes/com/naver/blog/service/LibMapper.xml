@@ -4,6 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="com.naver.blog.LibMapper">
+
+	<!-- 검색조건에 맞는 도서 조회 -->
+	<select id="selectSearchBook" resultType="com.naver.blog.valueObject.Book" parameterType="com.naver.blog.valueObject.SearchVO">
+		SELECT
+			* 
+		from 
+			Books
+		WHERE 
+			books.${searchOption} 
+		LIKE
+			'%${searchValue}%';
+	</select>
+	
 	<!-- 하나의 도서정보 조회 -->
 	<select id="selectOneBook" resultType="com.naver.blog.valueObject.Book" parameterType="int">
 		SELECT
@@ -13,6 +26,7 @@
 		WHERE
 			bookcode=#{bookCode}
 	</select>
+	
 	<!-- 하나의 대여정보 조회 -->
 	<select id="selectOneRental" resultType="com.naver.blog.valueObject.Rental" parameterType="int">
 		SELECT 

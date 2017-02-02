@@ -99,7 +99,7 @@
                 
                 <!-- 도서조회 -->
                 <li>
-                  <li><a href="#">도서조회</a></li>
+                  <li><a href="/booksearch">도서조회</a></li>
                 </li>
                 
                 <!-- 대출 -->

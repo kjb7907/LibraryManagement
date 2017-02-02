@@ -5,6 +5,7 @@ import java.util.List;
 import com.naver.blog.valueObject.Book;
 import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
+import com.naver.blog.valueObject.SearchVO;
 
 public interface LibService {
 	int bookAdd(Book book);
@@ -12,4 +13,6 @@ public interface LibService {
 	int returnBook(Rental rental);
 	List<Lib> importLib();
 	Rental oneSelectRental(int rentalCode);
+	List<Book> bookSearch(SearchVO searchVo);
+	
 }

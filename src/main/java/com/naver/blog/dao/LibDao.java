@@ -5,6 +5,7 @@ import java.util.List;
 import com.naver.blog.valueObject.Book;
 import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
+import com.naver.blog.valueObject.SearchVO;
 
 public interface LibDao {
 	int insertbook(Book book);
@@ -17,4 +18,5 @@ public interface LibDao {
 	List<Lib> selectLib();
 	Rental selectOneRental(int rentalCode);
 	Book selectOneBook(int bookCode);
+	List<Book> selectSearchBook(SearchVO searchVo);
 }

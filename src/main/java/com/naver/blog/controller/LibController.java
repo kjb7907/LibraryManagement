@@ -18,6 +18,7 @@ import com.naver.blog.service.LibServiceImpl;
 import com.naver.blog.valueObject.Book;
 import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
+import com.naver.blog.valueObject.SearchVO;
 
 /**
  * Handles requests for the application home page.
@@ -31,11 +32,21 @@ public class LibController {
 	@Autowired
 	LibService libService;
 	
-	//도서조회
-	@RequestMapping(value = "bookreturn", method = RequestMethod.GET)
+	//도서조회 폼
+	@RequestMapping(value = "booksearch", method = RequestMethod.GET)
 	public String bookSearch(){
 		logger.debug("bookSearch form");
-		return "bookearch";
+		return "booksearch";
+	}
+	
+	//도서조회 process
+	@RequestMapping(value = "booksearch", method = RequestMethod.POST)
+	public List<Book> bookSearch(SearchVO searchVo){
+		logger.debug("bookSearch process");
+		logger.debug("검색조건 : "+searchVo.getSearchOption());
+		logger.debug("검색문 : "+searchVo.getSearchValue());
+		List<Book> list = libService.bookSearch(searchVo);
+		return list;
 	}
 	
 	//하나의 대여정보 대여코드로 조회
@@ -69,6 +80,7 @@ public class LibController {
 		logger.debug("bookrental form");
 		return "bookrental";
 	}
+	
 	//도서대여 process
 	@RequestMapping(value = "bookrental", method = RequestMethod.POST)
 	public String bookRental(Rental rental){
@@ -86,6 +98,7 @@ public class LibController {
 		model.addAttribute("list",list);
 		return "bookadd";
 	}
+	
 	//도서등록 process
 	@RequestMapping(value = "bookadd", method = RequestMethod.POST)
 	public String bookadd(Book book){

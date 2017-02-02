@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.naver.blog.valueObject.Book;
 import com.naver.blog.valueObject.Lib;
 import com.naver.blog.valueObject.Rental;
+import com.naver.blog.valueObject.SearchVO;
 
 @Repository
 public class LibDaoImpl implements LibDao{
@@ -42,24 +43,28 @@ public class LibDaoImpl implements LibDao{
 		logger.debug("insertPayMent");
 		return sqlSession.insert(BOARD_NS+"insertPayMent",rental);
 	}
+	
 	//회원 대여카운트증가
 	@Override
 	public int updateMemberRentCount(String id) {
 		logger.debug("updateMemberRentCount");
 		return sqlSession.insert(BOARD_NS+"updateMemberRentCount",id);
 	}
+	
 	//도서 대여가능상태 변경
 	@Override
 	public int updateBookStatus(int bookCode) {
 		logger.debug("updateBookStatus");
 		return sqlSession.insert(BOARD_NS+"updateBookStatus",bookCode);
 	}
+	
 	//도서 반납
 	@Override
 	public int updateReturnBook(Rental rental) {
 		logger.debug("updateReturnBooks");
 		return sqlSession.insert(BOARD_NS+"updateReturnBook",rental.getRentalCode());
 	}
+	
 	//도서 대여가능 상태 변경 + 카운터증가
 	@Override
 	public int updateBookStatusCount(Rental rental) {
@@ -72,15 +77,23 @@ public class LibDaoImpl implements LibDao{
 	public List<Lib> selectLib() {
 		return sqlSession.selectList(BOARD_NS+"selectLib");
 	}
+	
 	//하나의 대여정보 대여코드로 조회
 	@Override
 	public Rental selectOneRental(int rentalCode) {
 		return sqlSession.selectOne(BOARD_NS+"selectOneRental", rentalCode);
 	}
+	
 	//하나의 도서정보 도서코드로 조회
 	@Override
 	public Book selectOneBook(int bookCode) {
 		return sqlSession.selectOne(BOARD_NS+"selectOneBook", bookCode);
+	}
+	
+	//검색 조건에 맞는 도서 가져오기
+	@Override
+	public List<Book> selectSearchBook(SearchVO searchVo) {
+		return sqlSession.selectOne(BOARD_NS+"selectSearchBook", searchVo);
 	}
 
 }
