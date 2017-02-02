@@ -4,13 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="com.naver.blog.LibMapper">
-	<!-- 회원가입시 도서관 목록 가져오기 -->
+	<!-- 하나의 대여정보 조회 -->
 	<select id="selectOneRental" resultType="com.naver.blog.valueObject.Rental" parameterType="int">
-		SELECT
-			LIBCODE,
-			LIBNAME,
-			LIBLOCATION
-		FROM lib
+		SELECT 
+			rental.BOOKCODE AS bookCode,
+			rental.MEMBERID AS memberId, 
+			rental.RENTALSTARTDAY AS rentalStartDay, 
+			rental.RETURNEXPECTDAY AS returnExpectDay,
+			rental.RETURNDAY AS returnDay,
+			rental.RETURNSTATUS AS returnStatus,
+			payment.PAYMENTPRICE AS rentalPrice
+		FROM 
+			Rental
+		INNER JOIN
+			payment
+		ON 
+			rental.RENTALCODE = #{rentalCode};
 	</select>
 
 	<!-- 회원가입시 도서관 목록 가져오기 -->

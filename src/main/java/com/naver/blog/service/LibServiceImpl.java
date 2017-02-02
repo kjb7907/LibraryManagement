@@ -58,6 +58,9 @@ public class LibServiceImpl implements LibService {
 	@Override
 	public Rental oneSelectRental(int rentalCode) {
 		Rental rental = libDao.selectOneRental(rentalCode);
+		logger.debug(rental.toString());
+		int bookCode = rental.getBookCode();
+		rental.setBook(libDao.selectOneBook(bookCode));
 		return rental;
 	}
 

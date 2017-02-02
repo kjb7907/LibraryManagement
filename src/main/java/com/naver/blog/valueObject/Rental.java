@@ -12,8 +12,9 @@ public class Rental {
 	private String returnStatus; 		//반납상태
 	@Override
 	public String toString() {
-		return "Rental [bookCode=" + bookCode + ", memberId=" + memberId + ", returnExpectDay=" + returnExpectDay
-				+ ", rentalPrice=" + rentalPrice + "]";
+		return "Rental [rentalCode=" + rentalCode + ", book=" + book + ", bookCode=" + bookCode + ", memberId="
+				+ memberId + ", rentalStartDay=" + rentalStartDay + ", returnExpectDay=" + returnExpectDay
+				+ ", rentalPrice=" + rentalPrice + ", returnDay=" + returnDay + ", returnStatus=" + returnStatus + "]";
 	}
 	public String getRentalCode() {
 		return rentalCode;
