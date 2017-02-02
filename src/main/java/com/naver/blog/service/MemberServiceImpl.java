@@ -1,6 +1,8 @@
 package com.naver.blog.service;
 
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,18 @@ public class MemberServiceImpl implements MemberService{
 			}
 		}
 		return result;
+	}
+
+	//회원비 미입금 회원 리스트
+	@Override
+	public List<Member> memberlevelup() {
+		return memberDao.memberlevelup();
+	}
+
+	//미입금회원 입금회원 전환처리
+	@Override
+	public int memberlevelupdate(String id) {
+		return memberDao.memberlevelupdate(id);
 	}
 
 

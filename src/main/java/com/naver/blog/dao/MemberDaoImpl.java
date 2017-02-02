@@ -1,5 +1,7 @@
 package com.naver.blog.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +39,18 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public Admin adminLogin(Admin admin) {
 		return sqlSession.selectOne(BOARD_NS+"adminLogin",admin);
+	}
+
+	//회원비 미입금 회원 리스트
+	@Override
+	public List<Member> memberlevelup() {
+		return sqlSession.selectList(BOARD_NS+"memberlevelup");
+	}
+
+	//미입금회원 입금회원 전환처리
+	@Override
+	public int memberlevelupdate(String id) {
+		return sqlSession.update(BOARD_NS+"memberlevelupdate",id);
 	}
 
 	

@@ -30,6 +30,22 @@ public class LibController {
 	@Autowired
 	LibService libService;
 	
+	//도서관등록 
+	@RequestMapping(value = "libadd", method = RequestMethod.GET)
+	public String libadd(){
+		logger.debug("libadd");
+
+		return "libadd";
+	}
+	
+	//도서폐기
+	@RequestMapping(value = "bookdis", method = RequestMethod.GET)
+	public String bookdis(){
+		logger.debug("bookdis");
+
+		return "bookdis";
+	}
+	
 	//도서조회 폼
 	@RequestMapping(value = "booksearch", method = RequestMethod.GET)
 	public String bookSearch(){

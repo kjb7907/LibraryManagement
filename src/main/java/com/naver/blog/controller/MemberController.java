@@ -31,6 +31,24 @@ public class MemberController {
 	@Autowired
 	MemberServiceImpl memberService;
 	
+	//미입금회원 입금회원 전환 처리
+	@RequestMapping(value = "memberlevelupdate", method = RequestMethod.GET)
+	public String memberlevelupdate(
+			@RequestParam(value = "id") String id){
+		logger.debug("memberlevelupdate process");
+		memberService.memberlevelupdate(id);
+		return "redirect:/memberlevelup";
+	}
+	
+	//미입금회원 입금회원 전환 페이지
+	@RequestMapping(value = "memberlevelup", method = RequestMethod.GET)
+	public String memberlevelup(Model model){
+		logger.debug("memberlevelup");
+		model.addAttribute("list", memberService.memberlevelup());
+		return "memberlevelup";
+	}
+	
+	
 	//id로 하나의 회원 조회
 	@RequestMapping(value = "selectOneMember", method = RequestMethod.GET)
 	public @ResponseBody Member selectOneMember(

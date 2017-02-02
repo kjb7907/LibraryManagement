@@ -26,6 +26,7 @@
     				$("#searchList").append("<td>" + list[i].writer + "</td>");
     				$("#searchList").append("<td>" + list[i].publisher + "</td>");
     				$("#searchList").append("<td>" + list[i].category + "</td>");
+    				$("#searchList").append("<td>" + list[i].genre + "</td>");
     				$("#searchList").append("<td>" + list[i].lib.libName + "</td>");
     				$("#searchList").append("<td>" + list[i].bookLocation + "</td>");
     				$("#searchList").append("<td>" + list[i].currentStatus + "</td>");
