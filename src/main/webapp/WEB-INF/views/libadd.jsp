@@ -9,6 +9,7 @@
 <body>
 <%@include file="./module/top.jsp" %>
 
+<div class="container">
 	<!-- 사이드메뉴 -->
      <div class="col-sm-2" class="list-group">
        <a href="#" class="list-group-item active">
@@ -61,7 +62,7 @@
 	</div>
 
 	<div style="height:300px"></div>
-
+</div>
 
 <%@include file="./module/footer.jsp" %>
 
