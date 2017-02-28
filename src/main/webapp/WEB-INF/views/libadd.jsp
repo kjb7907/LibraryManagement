@@ -15,8 +15,8 @@
        <a href="#" class="list-group-item active">
          메뉴
        </a>
-       <a href="#" class="list-group-item">지점등록
-       <a href="#" class="list-group-item">회원관리
+       <a href="libadd" class="list-group-item">지점등록
+       <a href="memberlevelup" class="list-group-item">회원관리
        </a>
      </div>
 

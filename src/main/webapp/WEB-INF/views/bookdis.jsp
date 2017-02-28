@@ -15,8 +15,8 @@
        <a href="#" class="list-group-item active">
          메뉴
        </a>
-       <a href="#" class="list-group-item">도서등록
-       <a href="#" class="list-group-item">도서폐기
+       <a href="bookadd" class="list-group-item">도서등록
+       <a href="bookdis" class="list-group-item">도서폐기
        </a>
      </div>
 
