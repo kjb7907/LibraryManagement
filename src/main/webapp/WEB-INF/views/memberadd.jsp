@@ -25,7 +25,7 @@
             <h3 class="panel-title">회원가입</h3>
           </div>
           <div class="panel-body">
-            <form class="form-horizontal" action="/memberadd" method="POST">
+            <form class="form-horizontal" action="memberadd" method="POST">
               <fieldset>
 
                 <!-- 아이디 -->

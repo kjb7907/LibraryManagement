@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
    
     <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
 
@@ -49,7 +49,7 @@
 	          <a href="logout" class="ui item">
 	            <h6>로그아웃</h6>
     	  <%} else{%>
- 	  	      <a href="/memberadd" class="ui item">
+ 	  	      <a href="memberadd" class="ui item">
 	            <h6>회원가입</h6>
 	          </a>
 	          <a href="login" class="ui item">
@@ -64,7 +64,7 @@
     <!-- 타이틀이미지 -->
     <div class="container">
       <center>
-        <a href="/main"><img src= "/resources/public/logo_kyobo.png"></a>
+        <a href="main"><img src= "resources/public/logo_kyobo.png"></a>
         <table style = "height:50px;"></table>
       </center>
     </div>
@@ -91,8 +91,8 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">도서관 관리 <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="/libadd">지점등록</a></li>
-                    <li><a href="/memberlevelup">회원관리</a></li>
+                    <li><a href="libadd">지점등록</a></li>
+                    <li><a href="memberlevelup">회원관리</a></li>
                   </ul>
                 </li>
 
@@ -100,23 +100,23 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">도서 관리 <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="/bookadd">도서등록</a></li>
-                    <li><a href="/bookdis">도서폐기</a></li>
+                    <li><a href="bookadd">도서등록</a></li>
+                    <li><a href="bookdis">도서폐기</a></li>
                   </ul>
                 </li>
                 
                 <!-- 도서조회 -->
                 <li>
-                  <li><a href="/booksearch">도서조회</a></li>
+                  <li><a href="booksearch">도서조회</a></li>
                 </li>
                 
                 <!-- 대출 -->
                 <li>
-                  <li><a href="/bookrental">도서대출</a></li>
+                  <li><a href="bookrental">도서대출</a></li>
                 </li>
                 <!-- 반납 -->
                 <li>
-                  <li><a href="/bookreturn">도서반납</a></li>
+                  <li><a href="bookreturn">도서반납</a></li>
                 </li>
 
           </ul>

@@ -30,7 +30,7 @@
 		</ol>
 		<div class="ui raised segment">
 			
-				<form class="ui form" method="post" action="/bookadd">
+				<form class="ui form" method="post" action="bookadd">
 					<h2 class="ui dividing header">Book Add</h2>
 					
 					<div class="fields">

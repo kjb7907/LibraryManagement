@@ -42,7 +42,7 @@ var setMemberPrice = function(price) {
 			console.log("버튼클릭");
 			
 	        $.ajax({
-	            url:'/selectOneMember',
+	            url:'selectOneMember',
 	            type:'get',
 	            data:{memberId:$('#memberId').val()},
 	    		dataType : "json",
@@ -53,19 +53,20 @@ var setMemberPrice = function(price) {
 	                }else{
 	                	setMemberPrice(100);
 	                }
+	                
+	    			var now_Date = new Date();	 //현재날짜
+	    			var returnExpectDay = new Date($("#returnExpectDay").val()); //비교날짜
+	    			var btMs = returnExpectDay.getTime() - now_Date.getTime() ; //밀리세컨드단위변환한후 연산
+	    			var btDay = btMs / (1000*60*60*24) ; //밀리세컨*초*분*시 일로 변환
+	    			var btDayResult = Math.floor(btDay); //소수점 제거
+	    		    
+	    		    console.log(btDayResult);
+	    		    console.log(memberPrice)
+	    		    var price = btDayResult*memberPrice;//일수*회원/비회원 단가
+	    		    $("#rentalPrice").val(price);	                
+       
 	            }
 	        });
-	        
-			var now_Date = new Date();	 //현재날짜
-			var returnExpectDay = new Date($("#returnExpectDay").val()); //비교날짜
-			var btMs = returnExpectDay.getTime() - now_Date.getTime() ; //밀리세컨드단위변환한후 연산
-			var btDay = btMs / (1000*60*60*24) ; //밀리세컨*초*분*시 일로 변환
-			var btDayResult = Math.floor(btDay); //소수점 제거
-		    
-		    console.log(btDayResult);
-		    console.log(memberPrice)
-		    var price = btDayResult*memberPrice;//일수*회원/비회원 단가
-		    $("#rentalPrice").val(price);
 		});
 	});
 </script>
@@ -104,13 +105,13 @@ var setMemberPrice = function(price) {
 						<!-- 대여자ID -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >대여자ID</label>
-						  <input type="text" name="memberId" id="memberId" placeholder="도서명">
+						  <input type="text" name="memberId" id="memberId" placeholder="mid001">
 						</div>
 											
 						<!-- 반납예정일 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >반납예정일</label>
-						  <input type="date" name="returnExpectDay" id="returnExpectDay" placeholder="출판사">
+						  <input type="date" name="returnExpectDay" id="returnExpectDay" placeholder="반납예정일">
 						</div>
 					</div>	
 					

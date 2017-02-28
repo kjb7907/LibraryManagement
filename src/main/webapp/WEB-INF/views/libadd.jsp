@@ -28,7 +28,7 @@
 		</ol>
 		<div class="ui raised segment">
 			
-				<form class="ui form" method="post" action="/libadd">
+				<form class="ui form" method="post" action="libadd">
 					<h2 class="ui dividing header">Lib Add</h2>
 					
 					<div class="fields">

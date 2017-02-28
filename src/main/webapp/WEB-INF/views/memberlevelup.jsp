@@ -48,7 +48,7 @@
 					  		<td>${list.name}</td>
 					  		<td>${list.phone}</td>
 					  		<td>${list.addr}</td>
-					  		<td><a href="/memberlevelupdate?id=${list.id}">회원승인</a></td>
+					  		<td><a href="memberlevelupdate?id=${list.id}">회원승인</a></td>
 					  	</tr>
 				  	</c:forEach>
 				</tbody>

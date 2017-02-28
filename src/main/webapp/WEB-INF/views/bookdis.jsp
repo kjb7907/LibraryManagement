@@ -28,7 +28,7 @@
 		</ol>
 		<div class="ui raised segment">
 			
-				<form class="ui form" method="post" action="/bookdis">
+				<form class="ui form" method="post" action="bookdis">
 					<h2 class="ui dividing header">Book Discard</h2>
 					
 					<div class="fields">

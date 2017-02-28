@@ -10,7 +10,7 @@
 	$(document).on('click','#btn1',function(){
     	console.log('버튼클릭');
         $.ajax({
-            url:'/booksearch',
+            url:'booksearch',
             type:'post',
             data:$('form').serialize(),
     		dataType : "json",

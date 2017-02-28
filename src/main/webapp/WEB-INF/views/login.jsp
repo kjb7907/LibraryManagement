@@ -17,7 +17,7 @@
         	Admin Login
       </div>
     </h2>
-    <form class="ui large form" action="/login" method="post">
+    <form class="ui large form" action="login" method="post">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">

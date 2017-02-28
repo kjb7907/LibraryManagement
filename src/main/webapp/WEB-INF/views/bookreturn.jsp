@@ -11,7 +11,7 @@
     	console.log('버튼클릭');
     	console.log('rentalCode'+$('#rentalCode').val());
         $.ajax({
-            url:'/oneSelectRental',
+            url:'oneSelectRental',
             type:'get',
             data:$('form').serialize(),
     		dataType : "json",
@@ -54,7 +54,7 @@
 		</ol>
 		<div class="ui raised segment">
 			
-				<form class="ui form" method="post" action="/bookreturn">
+				<form class="ui form" method="post" action="bookreturn">
 					<h2 class="ui dividing header">Book Return</h2>
 					
 					<div class="fields">
