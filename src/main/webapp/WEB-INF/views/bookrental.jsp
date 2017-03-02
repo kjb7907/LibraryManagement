@@ -65,7 +65,10 @@ var setMemberPrice = function(price) {
 	    		    var price = btDayResult*memberPrice;//일수*회원/비회원 단가
 	    		    $("#rentalPrice").val(price);	                
        
-	            }
+	            },
+	        	error:function(request,status,error){
+	        		alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	        	}
 	        });
 		});
 	});
@@ -99,13 +102,13 @@ var setMemberPrice = function(price) {
 						<!-- 도서코드 -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >도서코드</label>
-						  <input type="text" name="bookCode" placeholder="ex 800000">
+						  <input type="text" name="bookCode" placeholder="ex 800000" value="800000">
 						</div>
 						
 						<!-- 대여자ID -->
 						<div class="field col-sm-4">
 						  <label style= font-size:12px;" >대여자ID</label>
-						  <input type="text" name="memberId" id="memberId" placeholder="mid001">
+						  <input type="text" name="memberId" id="memberId" placeholder="mid001" value="mid001">
 						</div>
 											
 						<!-- 반납예정일 -->

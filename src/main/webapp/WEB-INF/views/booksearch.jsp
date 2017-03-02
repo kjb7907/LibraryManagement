@@ -8,7 +8,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 	$(document).on('click','#btn1',function(){
-    	console.log('버튼클릭');
         $.ajax({
             url:'booksearch',
             type:'post',
@@ -20,6 +19,7 @@
                 $("#result1").css("display","");
 	                
     			$.each(list, function(i) {
+    				$("#searchList").html('') //검색초기화
     				console.log(list[i]);
     				$("#searchList").append("<tr>");
     				$("#searchList").append("<td>" + list[i].bookName + "</td>");
@@ -32,7 +32,10 @@
     				$("#searchList").append("<td>" + list[i].currentStatus + "</td>");
     				$("#searchList").append("</tr>");
    				});     
-            }
+            },
+        	error:function(request,status,error){
+        		alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        	}
         });
     });
 </script>

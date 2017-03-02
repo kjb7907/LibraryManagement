@@ -12,7 +12,7 @@
 <div class="container">
   <div class ="text-center" style ="width:30%;margin:0 auto;vertical-align:middle;">
     <h2 class="ui teal image header">
-      <img src="/resources/public/logo.png" class="image">
+      
       <div class="content">
         	Admin Login
       </div>

@@ -31,7 +31,7 @@ public class LibController {
 	LibService libService;
 	
 	//도서관등록 
-	@RequestMapping(value = "libadd", method = RequestMethod.GET)
+	@RequestMapping(value = "/libadd", method = RequestMethod.GET)
 	public String libadd(){
 		logger.debug("libadd");
 
@@ -39,7 +39,7 @@ public class LibController {
 	}
 	
 	//도서관등록  process
-	@RequestMapping(value = "libadd", method = RequestMethod.POST)
+	@RequestMapping(value = "/libadd", method = RequestMethod.POST)
 	public String libadd(Lib lib){
 		logger.debug("libadd process");
 		
@@ -48,7 +48,7 @@ public class LibController {
 	}
 	
 	//도서폐기
-	@RequestMapping(value = "bookdis", method = RequestMethod.GET)
+	@RequestMapping(value = "/bookdis", method = RequestMethod.GET)
 	public String bookdis(){
 		logger.debug("bookdis");
 
@@ -56,7 +56,7 @@ public class LibController {
 	}
 	
 	//도서폐기 process
-	@RequestMapping(value = "bookdis", method = RequestMethod.POST)
+	@RequestMapping(value = "/bookdis", method = RequestMethod.POST)
 	public String bookdis(
 			@RequestParam(value = "bookCode") int bookCode){
 		logger.debug("bookdis");
@@ -64,14 +64,14 @@ public class LibController {
 		return "redirect:/main";
 	}
 	//도서조회 폼
-	@RequestMapping(value = "booksearch", method = RequestMethod.GET)
+	@RequestMapping(value = "/booksearch", method = RequestMethod.GET)
 	public String bookSearch(){
 		logger.debug("bookSearch form");
 		return "booksearch";
 	}
 	
 	//도서조회 process
-	@RequestMapping(value = "booksearch", method = RequestMethod.POST)
+	@RequestMapping(value = "/booksearch", method = RequestMethod.POST)
 	public @ResponseBody List<Book> bookSearch(SearchVO searchVo){
 		logger.debug("bookSearch process");
 		logger.debug("검색조건 : "+searchVo.getSearchOption());
@@ -81,7 +81,7 @@ public class LibController {
 	}
 	
 	//하나의 대여정보 대여코드로 조회
-	@RequestMapping(value = "oneSelectRental", method = RequestMethod.GET)
+	@RequestMapping(value = "/oneSelectRental", method = RequestMethod.GET)
 	public @ResponseBody Rental oneSelectRental(Model model,
 			@RequestParam(value = "rentalCode") int rentalCode){
 		logger.debug("oneSelectRental");
@@ -91,13 +91,13 @@ public class LibController {
 	}
 	
 	//도서반납화면
-	@RequestMapping(value = "bookreturn", method = RequestMethod.GET)
+	@RequestMapping(value = "/bookreturn", method = RequestMethod.GET)
 	public String bookReturn(){
 		logger.debug("bookreturn form");
 		return "bookreturn";
 	}
 	//도서반납 process
-	@RequestMapping(value = "bookreturn", method = RequestMethod.POST)
+	@RequestMapping(value = "/bookreturn", method = RequestMethod.POST)
 	public String bookReturn(Rental rental){
 		logger.debug("bookreturn process");
 		logger.debug(rental.toString());
@@ -106,14 +106,14 @@ public class LibController {
 	}
 	
 	//도서대여화면
-	@RequestMapping(value = "bookrental", method = RequestMethod.GET)
+	@RequestMapping(value = "/bookrental", method = RequestMethod.GET)
 	public String bookRental(){
 		logger.debug("bookrental form");
 		return "bookrental";
 	}
 	
 	//도서대여 process
-	@RequestMapping(value = "bookrental", method = RequestMethod.POST)
+	@RequestMapping(value = "/bookrental", method = RequestMethod.POST)
 	public String bookRental(Rental rental){
 		logger.debug("bookrental process");
 		logger.debug(rental.toString());
@@ -122,7 +122,7 @@ public class LibController {
 	}
 
 	//도서등록화면
-	@RequestMapping(value = "bookadd", method = RequestMethod.GET)
+	@RequestMapping(value = "/bookadd", method = RequestMethod.GET)
 	public String bookadd(Model model){
 		logger.debug("bookadd form");
 		List<Lib> list = libService.importLib();
@@ -131,7 +131,7 @@ public class LibController {
 	}
 	
 	//도서등록 process
-	@RequestMapping(value = "bookadd", method = RequestMethod.POST)
+	@RequestMapping(value = "/bookadd", method = RequestMethod.POST)
 	public String bookadd(Book book){
 		logger.debug("bookadd process");
 		logger.debug(book.toString());

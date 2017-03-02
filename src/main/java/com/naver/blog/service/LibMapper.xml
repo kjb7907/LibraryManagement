@@ -66,7 +66,7 @@
 			books.RENTALCOUNT AS rentalCount,
 			books.RENTALDAYS As rentalDays
 		from 
-			Books
+			books
 		WHERE 
 			books.${searchOption} 
 		LIKE
@@ -94,7 +94,7 @@
 			rental.RETURNSTATUS AS returnStatus,
 			payment.PAYMENTPRICE AS rentalPrice
 		FROM 
-			Rental
+			rental
 		INNER JOIN
 			payment
 		ON

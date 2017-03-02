@@ -28,7 +28,10 @@
                 $('#returnStatus').text(data.returnStatus);
                 $('#rentalPrice').text(data.rentalPrice);
                 $('#result1').css("display","");
-            }
+            },
+        	error:function(request,status,error){
+        		alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        	}
         });
     });
 </script>
@@ -61,7 +64,7 @@
 						<!-- 대여 -->
 						<div class="field">
 						  <label style= font-size:12px;" >대여코드</label>
-						  <input type="text" name="rentalCode" id="rentalCode"placeholder="ex 1000000" style="width:200px">
+						  <input type="text" name="rentalCode" id="rentalCode"placeholder="ex 1000000" value="1000000" style="width:200px">
   	                      <button type="button" class="big ui primary button" id="btn1">대여정보확인</button>
 						</div>
 					</div>	
