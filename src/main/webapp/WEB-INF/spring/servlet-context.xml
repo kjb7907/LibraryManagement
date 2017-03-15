@@ -14,7 +14,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/kjb7907?useUnicode=true&amp;characterEncoding=euckr"/>
 		<property name="username" value="kjb7907"/>
-		<property name="password" value="brucelee7907"/>
+		<property name="password" value="qwerty123"/>
 	</bean>
     
 	<!-- mybatis 세션생성을 위한 팩토리 생성 -->

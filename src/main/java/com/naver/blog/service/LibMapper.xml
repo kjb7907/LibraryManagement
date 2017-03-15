@@ -9,8 +9,8 @@
 	<insert id="libadd" parameterType="com.naver.blog.valueObject.Lib">
 		INSERT INTO
 			LIB(
-				lib.LIBNAME,
-				lib.LIBLOCATION
+				LIB_lib.LIBNAME,
+				LIB_lib.LIBLOCATION
 				)
 		VALUE(
 			#{libName},
@@ -21,7 +21,7 @@
 	<!-- 폐기등록 -->
 	<insert id="bookdisinsert" parameterType="int">
 		INSERT INTO
-			discardbooks(
+			LIB_discardbooks(
 				BOOKCODE,
 				DISCARDREASON
 			)
@@ -34,11 +34,11 @@
 	<!-- 폐기도서 대여 불가능상태로 변경 -->
 	<update id="bookdis" parameterType="int">
 		UPDATE 
-			books
+			LIB_books
 		SET 
-			books.CURRENTSTATUS='대여불가능' 
+			LIB_books.CURRENTSTATUS='대여불가능' 
 		WHERE 
-			books.BOOKCODE=#{bookCode}; 
+			LIB_books.BOOKCODE=#{bookCode}; 
 	</update>
 
 	<!-- 하나의 도서관 정보 조회 -->
@@ -47,7 +47,7 @@
 			LIBCODE,
 			LIBNAME,
 			LIBLOCATION
-		FROM lib
+		FROM LIB_lib
 		WHERE
 			libcode=#{libCode};
 	</select>
@@ -55,20 +55,20 @@
 	<!-- 검색조건에 맞는 도서 조회 -->
 	<select id="selectSearchBook" resultType="com.naver.blog.valueObject.Book" parameterType="com.naver.blog.valueObject.SearchVO">
 		SELECT
-			books.BOOKNAME AS bookName,
-			books.LIBCODE AS libCode,
-			books.WRITER AS writer,
-			books.PUBLISHER AS publisher,
-			books.CATEGORY AS category,
-			books.GENRE AS genre,
-			books.BOOKLOCATION AS bookLocation,
-			books.CURRENTSTATUS AS currentStatus,
-			books.RENTALCOUNT AS rentalCount,
-			books.RENTALDAYS As rentalDays
+			LIB_books.BOOKNAME AS bookName,
+			LIB_books.LIBCODE AS libCode,
+			LIB_books.WRITER AS writer,
+			LIB_books.PUBLISHER AS publisher,
+			LIB_books.CATEGORY AS category,
+			LIB_books.GENRE AS genre,
+			LIB_books.BOOKLOCATION AS bookLocation,
+			LIB_books.CURRENTSTATUS AS currentStatus,
+			LIB_books.RENTALCOUNT AS rentalCount,
+			LIB_books.RENTALDAYS As rentalDays
 		from 
-			books
+			LIB_books
 		WHERE 
-			books.${searchOption} 
+			LIB_books.${searchOption} 
 		LIKE
 			'%${searchValue}%';
 	</select>
@@ -78,7 +78,7 @@
 		SELECT
 			*
 		FROM
-			books
+			LIB_books
 		WHERE
 			bookcode=#{bookCode}
 	</select>
@@ -86,21 +86,21 @@
 	<!-- 하나의 대여정보 조회 -->
 	<select id="selectOneRental" resultType="com.naver.blog.valueObject.Rental" parameterType="int">
 		SELECT 
-			rental.BOOKCODE AS bookCode,
-			rental.MEMBERID AS memberId, 
-			rental.RENTALSTARTDAY AS rentalStartDay, 
-			rental.RETURNEXPECTDAY AS returnExpectDay,
-			rental.RETURNDAY AS returnDay,
-			rental.RETURNSTATUS AS returnStatus,
-			payment.PAYMENTPRICE AS rentalPrice
+			LIB_rental.BOOKCODE AS bookCode,
+			LIB_rental.MEMBERID AS memberId, 
+			LIB_rental.RENTALSTARTDAY AS rentalStartDay, 
+			LIB_rental.RETURNEXPECTDAY AS returnExpectDay,
+			LIB_rental.RETURNDAY AS returnDay,
+			LIB_rental.RETURNSTATUS AS returnStatus,
+			LIB_payment.PAYMENTPRICE AS rentalPrice
 		FROM 
-			rental
+			LIB_rental
 		INNER JOIN
-			payment
+			LIB_payment
 		ON
-			rental.RENTALCODE = payment.RENTALCODE
+			LIB_rental.RENTALCODE = LIB_payment.RENTALCODE
 		WHERE
-			rental.RENTALCODE = #{rentalCode};
+			LIB_rental.RENTALCODE = #{rentalCode};
 	</select>
 
 	<!-- 회원가입시 도서관 목록 가져오기 -->
@@ -109,13 +109,13 @@
 			LIBCODE,
 			LIBNAME,
 			LIBLOCATION
-		FROM lib
+		FROM LIB_lib
 	</select>
 	
 	<!-- 도서 반납 -->
 	<update id="updateReturnBook" parameterType="String">
 		UPDATE 
-			rental 
+			LIB_rental 
 		SET 
 			RETURNDAY = now(),
 			RETURNSTATUS='반납' 
@@ -126,7 +126,7 @@
 	<!-- 도서 대여가능 상태 변경 + 카운터증가 -->
 	<update id="updateBookStatusCount" parameterType="String">
 		UPDATE 
-			books  
+			LIB_books  
 		SET 
 			CURRENTSTATUS='대여가능' ,
 			RENTALCOUNT =RENTALCOUNT+1 ,
@@ -134,11 +134,11 @@
 		WHERE 
 			BOOKCODE=(
 				SELECT 
-					rental.BOOKCODE 
+					LIB_rental.BOOKCODE 
 				FROM 
-					rental 
+					LIB_rental 
 				WHERE 
-					rental.RENTALCODE=#{rentalCode}
+					LIB_rental.RENTALCODE=#{rentalCode}
 			); 
 	</update>
 	
@@ -146,7 +146,7 @@
 	<insert id="insertRental" parameterType="com.naver.blog.valueObject.Rental" 
 			useGeneratedKeys="true"  keyProperty="rentalCode">
 		INSERT INTO
-		rental (
+		LIB_rental (
 			bookcode,
 			memberid,
 			rentalstartday,
@@ -163,7 +163,7 @@
 	<!-- 결제 -->
 	<insert id="insertPayMent" parameterType="com.naver.blog.valueObject.Rental">
 		INSERT INTO 
-		payment(
+		LIB_payment(
 			RENTALCODE,
 			MEMBERID,
 			PAYMENTDAY,
@@ -181,9 +181,9 @@
 	<!-- 회원대여카운트 증가 -->
 	<update id="updateMemberRentCount" parameterType="String">
 		UPDATE 
-			member 
+			LIB_member 
 		SET 
-			member.RENTALCOUNT=member.RENTALCOUNT+1 
+			LIB_member.RENTALCOUNT=member.RENTALCOUNT+1 
 		WHERE 
 			MEMBERID=#{id}; 
 		
@@ -192,7 +192,7 @@
 	<!-- 도서대여상태 변경 -->
 	<update id="updateBookStatus" parameterType="int">
 		UPDATE 
-			books  
+			LIB_books  
 		SET
 			CURRENTSTATUS='대여불가능' 
 		WHERE BOOKCODE=#{bookCode}; 
@@ -202,7 +202,7 @@
 	<!-- 도서등록 insert Book-->
  	<insert id="insertBook" parameterType="com.naver.blog.valueObject.Book">
  	INSERT INTO 
- 	books (
+ 	LIB_books (
 	 	libcode,
 	 	bookname,
 	 	writer,

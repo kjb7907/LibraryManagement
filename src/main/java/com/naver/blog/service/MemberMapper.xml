@@ -8,24 +8,24 @@
 	<!-- 미입금회원 입금회원 전환처리 -->
 	<update id = "memberlevelupdate" parameterType="String">
 		UPDATE
-			member
+			LIB_member
 		SET
-			member.MEMBERPAYMENTSTATUS='입금회원'
+			LIB_member.MEMBERPAYMENTSTATUS='입금회원'
 		WHERE
-			member.MEMBERID=#{id};
+			LIB_member.MEMBERID=#{id};
 	</update>
 
 	<!-- 회원비 미입금 회원 리스트 -->
 	<select id="memberlevelup" resultType="com.naver.blog.valueObject.Member">
 		SELECT
-			member.MEMBERID AS id,
-			member.MEMBERNAME AS name,
-			member.MEMBERPHONE AS phone,
-			member.MEMBERADDR AS addr
+			LIB_member.MEMBERID AS id,
+			LIB_member.MEMBERNAME AS name,
+			LIB_member.MEMBERPHONE AS phone,
+			LIB_member.MEMBERADDR AS addr
 		FROM
-			member
+			LIB_member
 		WHERE
-			member.MEMBERPAYMENTSTATUS='미입금';
+			LIB_member.MEMBERPAYMENTSTATUS='미입금';
 	</select>
 
 	<!-- 관리자 로그인 -->
@@ -33,9 +33,9 @@
 		SELECT
 			*
 		FROM
-			admin
+			LIB_admin
 		WHERE
-			admin.adminid=#{adminId};
+			LIB_admin.adminid=#{adminId};
 	</select>
 
 	<!-- 아이디로 하나의 회원정보 조회-->
@@ -43,15 +43,15 @@
 		SELECT
 			*
 		FROM
-			member
+			LIB_member
 		WHERE
-			member.MEMBERID=#{memberId};
+			LIB_member.MEMBERID=#{memberId};
 	</select>
 
 	<!--회원등록 insert member-->
  	<insert id="insertMember" parameterType="com.naver.blog.valueObject.Member">
 	 	INSERT INTO 
-		member(
+		LIB_member(
 			memberid,
 			memberpw,
 			membername,
